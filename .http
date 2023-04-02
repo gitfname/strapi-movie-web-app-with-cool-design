@@ -1,0 +1,28 @@
+POST http://localhost:1337/api/auth/local
+Content-Type: application/json
+
+{
+    "identifier": "user1@gmail.com",
+    "password": "123456"
+}
+
+
+
+###
+### eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjgwMzU0NzI1LCJleHAiOjE2ODI5NDY3MjV9.zoUw0s9NKbZPukpZV7p3XKw8-G347RMfj_cauavjsis
+
+
+
+PUT http://localhost:1337/api/users/11
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjgwMzUxMjU4LCJleHAiOjE2ODI5NDMyNTh9.ETeTtz2LDXQtAnyzBLulC-WgYUOFv1lKa_NirYXk_PA
+
+{
+    "username": "user10-update"
+}
+
+###
+
+PUT http://localhost:1337/api/user-actions/11
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjgwMzU0OTIzLCJleHAiOjE2ODI5NDY5MjN9.SEKRxS1r5cSOcQF-2CultaOsgUtM-J_wIKESnfLcrq4
