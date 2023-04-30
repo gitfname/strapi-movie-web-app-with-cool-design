@@ -3,10 +3,39 @@
 @tailwind utilities;
 
 
+.font-Raleway, .font-Raleway * {
+    font-family: 'Raleway';
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-
-
-.roboto {
-    font-family: 'Roboto', sans-serif!important;
+.font-lexend-100, .font-lexend-100 * {
+    font-family: 'Lexend';
+    font-weight: 100;
+}
+.font-lexend-200, .font-lexend-200 * {
+    font-family: 'Lexend';
+    font-weight: 200;
+}
+.font-lexend-300, .font-lexend-300 * {
+    font-family: 'Lexend';
+    font-weight: 300;
+}
+.font-lexend-400, .font-lexend-400 * {
+    font-family: 'Lexend';
+    font-weight: 400;
+}
+.font-lexend-500, .font-lexend-500 * {
+    font-family: 'Lexend';
+    font-weight: 500;
+}
+.font-lexend-600, .font-lexend-600 * {
+    font-family: 'Lexend';
+    font-weight: 600;
+}
+.font-lexend-700, .font-lexend-700 * {
+    font-family: 'Lexend';
+    font-weight: 700;
+}
+.font-lexend-800, .font-lexend-800 * {
+    font-family: 'Lexend';
+    font-weight: 800;
 }

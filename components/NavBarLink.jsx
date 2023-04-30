@@ -8,7 +8,7 @@ export default function NavBarLink({href, text, linkClass, textClass}) {
         >
             <span
                 className={
-                    `text-sm font-normal leading-5
+                    `text-sm font-light font-[Lexend] leading-5
                     dark:text-white text-black
                     group-hover:text-red-500 transition-colors duration-300`
                     + " " +
