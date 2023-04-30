@@ -5,7 +5,7 @@ export default function ApplicationLayout({children}) {
         <div className="w-full h-screen">
 
             <NavBar />
-
+            
             {children}
 
         </div>

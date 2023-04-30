@@ -3,17 +3,17 @@ export default function StatusCard({status=[], containerClass, itemClass}) {
     return (
         <div
             className={
-                `relative w-64 rounded-sm bg-[#D9D9D9]/10 py-[35px]
-                backdrop-blur-[2px]`
+                `relative rounded-sm bg-[#D9D9D9]/10
+                backdrop-blur-[2px] w-56 h-max py-[40px]`
                 + " " +
                 containerClass
             }
         >
 
-            <div className="absolute -left-10 top-4 w-full h-full border-t border-red-500"></div>
-            <div className="absolute -top-4 left-4 w-full h-full border-l border-red-500"></div>
-            <div className="absolute top-6 right-4 w-full h-full border-r border-red-500"></div>
-            <div className="absolute -right-5 -bottom-3 w-full h-full border-b border-red-500"></div>
+            <div className="absolute -left-10 top-4 w-full h-full border-t-2 border-red-500"></div>
+            <div className="absolute -top-4 left-4 w-full h-full border-l-2 border-red-500"></div>
+            <div className="absolute top-6 right-4 w-full h-full border-r-2 border-red-500"></div>
+            <div className="absolute -right-5 -bottom-3 w-full h-full border-b-2 border-red-500"></div>
 
             <div className="w-full h-full flex items-center justify-center flex-col gap-y-[14px]">
                 {

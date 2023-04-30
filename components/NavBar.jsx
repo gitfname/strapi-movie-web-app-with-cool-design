@@ -1,9 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
 import IconButton from "./IconButton";
 import Logo from "./Logo";
 import NavBarLink from "./NavBarLink";
-import SearchIconSvg from "../public/search-normal-1.svg?raw"
 import { searchNormal1_svg, user_svg } from "@/lib/svg";
 
 export default function NavBar() {

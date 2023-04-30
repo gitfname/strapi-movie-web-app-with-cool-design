@@ -1,14 +1,17 @@
 import ApplicationLayout from "@/components/ApplicationLayout"
 import CTA from "@/components/CTA"
+import GenreCard from "@/components/GenreCard"
 import StatusCard from "@/components/StatusCard"
 import { clapperboard_svg } from "@/lib/svg"
 import Image from "next/image"
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="pb-10">
 
-      <div className="w-full h-screen relative">
+      
+      {/* hero section */}
+      <div className="w-full min-h-screen relative">
 
         <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-[#1E1E1E] to-[#1E1E1E]/5"></div>
 
@@ -25,10 +28,10 @@ export default function HomePage() {
           grid grid-cols-2"
         >
           <div className="flex flex-col">
-            <p className="text-3xl font-[Raleway] font-semibold text-white max-w-xs">
+            <p className="text-4xl font-[Raleway] font-bold text-white max-w-xs">
               Let’s Make Your
             </p>
-            <p className="text-3xl font-[Raleway] font-semibold text-white max-w-xs">
+            <p className="text-4xl font-[Raleway] font-bold text-white max-w-xs">
               Own Cinema
             </p>
 
@@ -36,7 +39,7 @@ export default function HomePage() {
               You can still enjoy the latest movies and other movies online and at a lower price
             </p>
 
-            <div className="mt-5 flex items-center gap-x-2">
+            <div className="mt-5 flex items-center gap-x-10">
               <CTA text="Get Started" />
               <CTA text="More" type="outline" />
             </div>
@@ -64,7 +67,64 @@ export default function HomePage() {
           </div>
 
         </div>
+
+        <div className="absolute bottom-0 translate-y-1/2 backdrop-blur-xl bg-transparent left-0 w-full h-16 bg-gradient-to-b from-transparent to-[#1E1E1E]/30"></div>
         
+      </div>
+
+      {/* Genres section */}
+      <div
+        className="w-full px-[50px] -translate-y-10 grid grid-cols-4 gap-x-[70px] gap-y-10"
+      >
+
+        <GenreCard
+          img="/alien.svg"
+          title="Science fiction"
+          subtitle="800+ Movies"
+        />
+
+        <GenreCard
+          img="/classic.svg"
+          title="Classic"
+          subtitle="750+ Movies"
+        />
+
+        <GenreCard
+          img="/horror.svg"
+          title="Horror"
+          subtitle="680+ Movies"
+        />
+
+        <GenreCard
+          img="/mistery.svg"
+          title="Mystery"
+          subtitle="730+ Movies"
+        />
+
+        <GenreCard
+          img="/musical.svg"
+          title="Musical"
+          subtitle="550+ Movies"
+        />
+
+        <GenreCard
+          img="/romance.svg"
+          title="Romance"
+          subtitle="920+ Movies"
+        />
+
+        <GenreCard
+          img="/war.svg"
+          title="War"
+          subtitle="880+ Movies"
+        />
+
+        <GenreCard
+          img="/western.svg"
+          title="Western"
+          subtitle="700+ Movies"
+        />
+
       </div>
 
     </div>
