@@ -1,12 +1,34 @@
 import ApplicationLayout from "@/components/ApplicationLayout"
 import CTA from "@/components/CTA"
+import FilterByeGenreTag from "@/components/FilterByeGenreTag"
 import FiltersWithDropDown from "@/components/FiltersWithDropDown"
 import GenreCard from "@/components/GenreCard"
 import StatusCard from "@/components/StatusCard"
 import { calendar_svg, clapperboard_svg } from "@/lib/svg"
 import Image from "next/image"
+import { useEffect, useId } from "react"
+import BScroll from "better-scroll"
 
 export default function HomePage() {
+  const filtersByeTypeId = useId()
+
+  useEffect(
+    () => {
+      const element = document.getElementById(filtersByeTypeId)
+      new BScroll(element, {
+        bounce: {
+          left: true,
+          right: true
+        },
+        scrollY: false,
+        scrollX: true,
+        bounceTime: 500
+      })
+    },
+    [filtersByeTypeId]
+  )
+
+
   return (
     <div className="pb-56">
 
@@ -206,6 +228,22 @@ export default function HomePage() {
           }
         />
 
+      </div>
+
+      
+      {/* filters bye genre */}
+      <div id={filtersByeTypeId} className="w-11/12 mx-auto overflow-hidden">
+        <div className="w-max flex items-center flex-nowrap mt-10 gap-x-3">
+          <FilterByeGenreTag text="All" active />
+          <FilterByeGenreTag text="Genre" />
+          <FilterByeGenreTag text="Popular" />
+          <FilterByeGenreTag text="Recommened" />
+          <FilterByeGenreTag text="New" />
+          <FilterByeGenreTag text="Series" />
+          <FilterByeGenreTag text="Top Ten" />
+          <FilterByeGenreTag text="Animation" />
+          <FilterByeGenreTag text="Archive" />
+        </div>
       </div>
 
     </div>
