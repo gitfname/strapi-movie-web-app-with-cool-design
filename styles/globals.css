@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 
+
+.hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.scrolling-touch {
+    -webkit-overflow-scrolling: touch!important;
+    scroll-behavior: smooth!important;
+}
+
+
 .font-Raleway, .font-Raleway * {
     font-family: 'Raleway';
 }

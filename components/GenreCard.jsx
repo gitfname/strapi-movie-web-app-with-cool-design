@@ -10,6 +10,7 @@ export default function GenreCard({title, subtitle, href, img}) {
 
             <div className="w-[55px] h-[55px] bg-[#1C1917] rounded-[4px] grid place-items-center flex-shrink-0">
                 <Image
+                    alt=""
                     width={35}
                     height={35}
                     src={img}

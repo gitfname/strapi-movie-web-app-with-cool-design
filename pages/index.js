@@ -1,13 +1,14 @@
 import ApplicationLayout from "@/components/ApplicationLayout"
 import CTA from "@/components/CTA"
+import FiltersWithDropDown from "@/components/FiltersWithDropDown"
 import GenreCard from "@/components/GenreCard"
 import StatusCard from "@/components/StatusCard"
-import { clapperboard_svg } from "@/lib/svg"
+import { calendar_svg, clapperboard_svg } from "@/lib/svg"
 import Image from "next/image"
 
 export default function HomePage() {
   return (
-    <div className="pb-10">
+    <div className="pb-56">
 
       
       {/* hero section */}
@@ -74,7 +75,7 @@ export default function HomePage() {
 
       {/* Genres section */}
       <div
-        className="w-full px-[50px] -translate-y-10 grid grid-cols-4 gap-x-[70px] gap-y-10"
+        className="w-full px-[50px] -translate-y-1/2 grid grid-cols-4 gap-x-[70px] gap-y-10"
       >
 
         <GenreCard
@@ -123,6 +124,86 @@ export default function HomePage() {
           img="/western.svg"
           title="Western"
           subtitle="700+ Movies"
+        />
+
+      </div>
+
+
+      {/* filters section */}
+      <div className="px-[50px] mt-[0px]">
+
+        <FiltersWithDropDown
+          items={
+            [
+              {
+                key: 0,
+                text: "Sort by Year",
+                img: "/calendar.svg",
+                items: [
+                  {
+                    text: "2023 - 2022",
+                  },
+                  {
+                    text: "2022 - 2021",
+                  },
+                  {
+                    text: "2021 - 2020",
+                  }
+                ]
+              },
+              {
+                key: 1,
+                text: "Sort by Genre",
+                img: "/more.svg",
+                items: [
+                  {
+                    text: "Action",
+                  },
+                  {
+                    text: "Adventure",
+                  },
+                  {
+                    text: "Comedy",
+                  }
+                ]
+              },
+              {
+                key: 2,
+                text: "Sort by Rating",
+                img: "/star1.svg",
+                items: [
+                  {
+                    text: "10 - 5",
+                  },
+                  {
+                    text: "5 - 0",
+                  }
+                ]
+              },
+              {
+                key: 3,
+                text: "Sort by Vote",
+                img: "/like1.svg",
+                items: [
+                  {
+                    text: "1000",
+                  },
+                  {
+                    text: "900",
+                  },
+                  {
+                    text: "800",
+                  },
+                  {
+                    text: "700",
+                  },
+                  {
+                    text: "600",
+                  }
+                ]
+              }
+            ]
+          }
         />
 
       </div>

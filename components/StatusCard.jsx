@@ -17,8 +17,9 @@ export default function StatusCard({status=[], containerClass, itemClass}) {
 
             <div className="w-full h-full flex items-center justify-center flex-col gap-y-[14px]">
                 {
-                    status.map(stat => (
+                    status.map((stat, i) => (
                         <div
+                            key={i}
                             className={
                                 `flex items-center justify-center gap-x-3.5 w-full`
                                 + " " +
