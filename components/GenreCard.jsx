@@ -5,10 +5,10 @@ import { BsArrowRightShort } from "react-icons/bs"
 export default function GenreCard({title, subtitle, href, img}) {
     return (
         <div
-            className="flex items-center gap-x-3 py-4 px-[18px] rounded-lg bg-[#272320]"
+            className="flex max-sm:flex-col items-center gap-x-3 gap-y-2 py-4 px-[18px] rounded-lg bg-[#272320]"
         >
 
-            <div className="w-[55px] h-[55px] bg-[#1C1917] rounded-[4px] grid place-items-center flex-shrink-0">
+            <div className="w-[46px] h-[46px] md:w-[55px] md:h-[55px] bg-[#1C1917] rounded-[4px] grid place-items-center flex-shrink-0">
                 <Image
                     alt=""
                     width={35}

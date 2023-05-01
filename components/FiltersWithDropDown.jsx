@@ -10,7 +10,7 @@ function DropDownItem({href, text, onClick, containerClass, textClass}) {
     const content = (
         <p
             className={
-                `text-white text-xs font-normal font-[Lexend] tracking-wide`
+                `text-white text-xs font-normal font-[Lexend] tracking-wide pointer-events-none`
                 + ' ' +
                 textClass
             }
@@ -106,15 +106,13 @@ function DropDown({img, text, items=[]}) {
 
             <div
                 id={dropDownMenuId}
-                style={{pointerEvents:(isOpen?"auto":"none")}}
-                className={`absolute left-0 -bottom-1 translate-y-[95%] opacity-0 transition-all duration-300 overflow-hidden
-                    w-full max-h-48 min-h-max pointer-events-none flex flex-col bg-[#131313] gap-y-1.5 rounded-lg
-                    ${isOpen&&"!pointer-events-auto !opacity-100 !translate-y-full"}`}
+                className={`absolute left-0 -bottom-1 translate-y-[95%] opacity-0 overflow-y-hidden
+                    w-full max-h-48 min-h-max flex flex-col bg-[#131313] gap-y-1.5 rounded-lg
+                    ${isOpen&&"!opacity-100 !translate-y-full transition-all duration-300"}`}
                 >
 
                     <div
-                        style={{pointerEvents:(isOpen?"auto":"none")}}
-                        className={`flex flex-col gap-y-1.5 relative h-max p-1.5 pointer-events-none ${isOpen&&"!pointer-events-auto"}`}
+                        className="flex flex-col gap-y-1.5 h-max p-1.5"
                     >
                         {
                             isOpen&&MemoizedDropDownItems
@@ -136,7 +134,7 @@ export default function FiltersWithDropDown({items=[]}) {
                 bounce: {
                     top: false,
                     bottom: false,
-                    left: true,
+                    left: false,
                     right: true
                 },
                 bounceTime: 400,
@@ -147,7 +145,7 @@ export default function FiltersWithDropDown({items=[]}) {
     )
 
     return (
-        <div className="container-scroll rounded-lg hidden-scrollbar pointer-events-none">
+        <div className="container-scroll rounded-lg hidden-scrollbar pointer-events-none h-[264px]">
             <div className="w-max min-w-full bg-white/[3%] rounded-lg py-4 px-7 flex gap-x-10 items-center pointer-events-auto justify-center">
                 {
                     items.map(item => <DropDown {...item} />)
