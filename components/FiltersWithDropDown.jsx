@@ -147,7 +147,7 @@ export default function FiltersWithDropDown({items=[]}) {
     )
 
     return (
-        <div className="container-scroll overflow-x-hidden h-[264px] border border-white border-opacity-10 rounded-lg hidden-scrollbar pointer-events-none">
+        <div className="container-scroll rounded-lg hidden-scrollbar pointer-events-none">
             <div className="w-max min-w-full bg-white/[3%] rounded-lg py-4 px-7 flex gap-x-10 items-center pointer-events-auto justify-center">
                 {
                     items.map(item => <DropDown {...item} />)
