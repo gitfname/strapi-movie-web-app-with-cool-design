@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic"
 import ApplicationLayout from "@/components/ApplicationLayout"
 import CTA from "@/components/CTA"
 import FilterByeGenreTag from "@/components/FilterByeGenreTag"
@@ -7,6 +8,7 @@ import StatusCard from "@/components/StatusCard"
 import Image from "next/image"
 import { useEffect, useId } from "react"
 import BScroll from "better-scroll"
+const HorizontalScrollableSection = dynamic(() => import("@/components/HorizontalScrollableSection"), {ssr: false})
 
 export default function HomePage() {
 
