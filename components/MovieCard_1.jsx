@@ -9,9 +9,10 @@ export default function MovieCard_1({id, title, desc, date, pageLink, img, heigh
                 width: width,
                 height: height
             }}
-            className="rounded-lg relative overflow-hidden"
+            className="rounded-lg overflow-hidden"
         >
 
+            <div className=" w-full h-full relative -z-10">
             <Image
                 width={img.width}
                 height={img.height}
@@ -33,6 +34,7 @@ export default function MovieCard_1({id, title, desc, date, pageLink, img, heigh
 
                     <HiArrowRight className="w-4 h-4 fill-white transition-all duration-300 cursor-pointer hover:fill-red-500 hover:scale-125 active:scale-105" />
                 </div>
+            </div>
             </div>
 
         </div>

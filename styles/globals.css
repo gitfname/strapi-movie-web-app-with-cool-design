@@ -5,6 +5,10 @@
 
 
 
+.chakra-portal > div {
+    z-index: 999999;
+}
+
 .preserve-3d {
     /* position: relative; */
     transform-style: preserve-3d!important;
