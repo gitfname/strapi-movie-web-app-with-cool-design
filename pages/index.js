@@ -265,7 +265,7 @@ export default function HomePage() {
         <HorizontalScrollableSection
           title="Hot Movies"
           showSeeMore={true}
-          slideH={175}
+          slideH={195}
           slidesPerView={2}
           slidesPerView_sm={2}
           slidesPerView_md={3}
@@ -282,7 +282,7 @@ export default function HomePage() {
                 src: "/movie-images/img1.jpg"
               },
               width: "100%",
-              height: 175,
+              height: 195,
               date: {
                 year: "2023",
                 month: "03",
@@ -301,7 +301,7 @@ export default function HomePage() {
                 src: "/movie-images/img2.jpg"
               },
               width: "100%",
-              height: 175,
+              height: 195,
               date: {
                 year: "2023",
                 month: "11",
@@ -320,7 +320,7 @@ export default function HomePage() {
                 src: "/movie-images/img3.jpg"
               },
               width: "100%",
-              height: 175,
+              height: 195,
               date: {
                 year: "2022",
                 month: "05",
@@ -339,7 +339,7 @@ export default function HomePage() {
                 src: "/movie-images/img4.jpg"
               },
               width: "100%",
-              height: 175,
+              height: 195,
               date: {
                 year: "2023",
                 month: "01",
@@ -358,7 +358,7 @@ export default function HomePage() {
                 src: "/movie-images/img5.jpeg"
               },
               width: "100%",
-              height: 175,
+              height: 195,
               date: {
                 year: "2023",
                 month: "05",
