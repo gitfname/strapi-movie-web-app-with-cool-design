@@ -4,12 +4,12 @@ import FilterByeGenreTag from "@/components/FilterByeGenreTag"
 import FiltersWithDropDown from "@/components/FiltersWithDropDown"
 import GenreCard from "@/components/GenreCard"
 import StatusCard from "@/components/StatusCard"
-import { calendar_svg, clapperboard_svg } from "@/lib/svg"
 import Image from "next/image"
 import { useEffect, useId } from "react"
 import BScroll from "better-scroll"
 
 export default function HomePage() {
+
   const filtersByeTypeId = useId()
 
   useEffect(
@@ -30,7 +30,7 @@ export default function HomePage() {
 
 
   return (
-    <div className="pb-8">
+    <div className="pb-28">
 
       
       {/* hero section */}
@@ -102,7 +102,7 @@ export default function HomePage() {
 
       {/* Genres section */}
       <div
-        className="w-full relative z-10 px-[25px] md:px-[50px] md:-translate-y-20 lg:-translate-y-24 max-lg:mt-12 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 md:gap-x-[70px] gap-y-10
+        className="w-full z-10 px-[25px] md:px-[50px] md:-translate-y-20 lg:-translate-y-24 max-lg:mt-12 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 md:gap-x-[70px] gap-y-10
         "
       >
 
@@ -157,23 +157,8 @@ export default function HomePage() {
       </div>
 
 
-      {/* filters bye genre */}
-      <div id={filtersByeTypeId} className="px-[10px] md:w-11/12 mx-auto overflow-hidden max-md:mt-12">
-        <div className="w-max flex items-center flex-nowrap gap-x-3">
-          <FilterByeGenreTag text="All" active />
-          <FilterByeGenreTag text="Genre" />
-          <FilterByeGenreTag text="Popular" />
-          <FilterByeGenreTag text="Recommened" />
-          <FilterByeGenreTag text="New" />
-          <FilterByeGenreTag text="Series" />
-          <FilterByeGenreTag text="Top Ten" />
-          <FilterByeGenreTag text="Animation" />
-          <FilterByeGenreTag text="Archive" />
-        </div>
-      </div>
-
       {/* filters section */}
-      <div className="px-[25px] md:px-[50px] overflow-hidden mt-5">
+      <div className="px-[25px] md:px-[50px] overflow-hidden max-md:mt-12">
 
         <FiltersWithDropDown
           items={
@@ -182,6 +167,7 @@ export default function HomePage() {
                 key: 0,
                 text: "Sort by Year",
                 img: "/calendar.svg",
+                observe: true,
                 items: [
                   {
                     text: "2023 - 2022",
@@ -198,6 +184,7 @@ export default function HomePage() {
                 key: 1,
                 text: "Sort by Genre",
                 img: "/more.svg",
+                observe: false,
                 items: [
                   {
                     text: "Action",
@@ -214,6 +201,7 @@ export default function HomePage() {
                 key: 2,
                 text: "Sort by Rating",
                 img: "/star1.svg",
+                observe: false,
                 items: [
                   {
                     text: "10 - 5",
@@ -227,6 +215,7 @@ export default function HomePage() {
                 key: 3,
                 text: "Sort by Vote",
                 img: "/like1.svg",
+                observe: false,
                 items: [
                   {
                     text: "1000",
@@ -249,6 +238,22 @@ export default function HomePage() {
           }
         />
 
+      </div>
+
+
+      {/* filters bye genre */}
+      <div id={filtersByeTypeId} className="px-[10px] md:w-11/12 mx-auto overflow-hidden mt-5">
+        <div className="w-max flex items-center flex-nowrap gap-x-3">
+          <FilterByeGenreTag text="All" active />
+          <FilterByeGenreTag text="Genre" />
+          <FilterByeGenreTag text="Popular" />
+          <FilterByeGenreTag text="Recommened" />
+          <FilterByeGenreTag text="New" />
+          <FilterByeGenreTag text="Series" />
+          <FilterByeGenreTag text="Top Ten" />
+          <FilterByeGenreTag text="Animation" />
+          <FilterByeGenreTag text="Archive" />
+        </div>
       </div>
 
     </div>
