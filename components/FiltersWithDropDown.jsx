@@ -1,4 +1,4 @@
-import { useEffect, useState, useId } from "react"
+import { useEffect, useState, useId, useRef } from "react"
 import BScroll from "better-scroll";
 import { IoIosArrowDown } from "react-icons/io"
 import Image from "next/image";
@@ -10,14 +10,18 @@ import {
     MenuItem,
     Portal
 } from "@chakra-ui/react"
+import useClickOutside from "@/lib/hooks/clickOutSide";
 
 
 function DropDown({img, text, items=[]}) {
     const [isOpen, setIsopen] = useState(false)
+    const menuRef = useRef(null)
+    useClickOutside(menuRef, () => isOpen&&setIsopen(false))
 
     return (
-        <Menu onOpen={() => setIsopen(true)} onClose={() => setIsopen(false)}>
+        <Menu isOpen={isOpen}>
             <MenuButton
+                onClick={() => setIsopen(true)}
                 as="button"
                 className="w-[200px] h-[44px] bg-white/[2%] rounded-lg shadow-lg shadow-black/10"
             >
@@ -38,11 +42,13 @@ function DropDown({img, text, items=[]}) {
                 isOpen&&(
                     <Portal>
                         <MenuList
+                            ref={menuRef}
                             className="w-[200px] rounded-lg bg-[#151515] p-1.5"
                         >
                             <div className="flex flex-col gap-y-1.5">
                                 {items.map(item => (
                                     <MenuItem
+                                        onClick={() => setIsopen(false)}
                                         className="p-2.5 rounded-lg bg-[#1E1E1E] border border-transparent
                                         hover:border-red-500 transition-colors duration-300 cursor-pointer"
                                     >
