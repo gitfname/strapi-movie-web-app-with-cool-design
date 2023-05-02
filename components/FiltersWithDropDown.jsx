@@ -48,7 +48,6 @@ function DropDown({img, text, items=[]}) {
                             <div className="flex flex-col gap-y-1.5">
                                 {items.map(item => (
                                     <MenuItem
-                                        onClick={() => setIsopen(false)}
                                         className="p-2.5 rounded-lg bg-[#1E1E1E] border border-transparent
                                         hover:border-red-500 transition-colors duration-300 cursor-pointer"
                                     >
