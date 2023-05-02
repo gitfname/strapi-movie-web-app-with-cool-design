@@ -8,6 +8,7 @@ import StatusCard from "@/components/StatusCard"
 import Image from "next/image"
 import { useEffect, useId } from "react"
 import BScroll from "better-scroll"
+import MovieCard_1 from "@/components/MovieCard_1"
 const HorizontalScrollableSection = dynamic(() => import("@/components/HorizontalScrollableSection"), {ssr: false})
 
 export default function HomePage() {
@@ -256,6 +257,118 @@ export default function HomePage() {
           <FilterByeGenreTag text="Animation" />
           <FilterByeGenreTag text="Archive" />
         </div>
+      </div>
+
+
+      {/* hot movies */}
+      <div className="mt-[34px] lg:px-[50px]">
+        <HorizontalScrollableSection
+          title="Hot Movies"
+          showSeeMore={true}
+          slideH={175}
+          slidesPerView={2}
+          slidesPerView_sm={2}
+          slidesPerView_md={3}
+          slidesPerView_lg={3}
+          renderSlideTemplate={item => <MovieCard_1 {...item}/>}
+          items={[
+            {
+              id: "0",
+              title: "movie-1",
+              desc: "movie-1 description and with other text is goes here",
+              img: {
+                width: 500,
+                height: 400,
+                src: "/movie-images/img1.jpg"
+              },
+              width: "100%",
+              height: 175,
+              date: {
+                year: "2023",
+                month: "03",
+                dat: "11",
+                total: "2023/03/11"
+              },
+              pageLink: "http://example.com/movie-1details",
+            },
+            {
+              id: "1",
+              title: "movie-2",
+              desc: "movie-2 description and with other text is goes here",
+              img: {
+                width: 500,
+                height: 400,
+                src: "/movie-images/img2.jpg"
+              },
+              width: "100%",
+              height: 175,
+              date: {
+                year: "2023",
+                month: "11",
+                dat: "03",
+                total: "2023/11/03"
+              },
+              pageLink: "http://example.com/movie-2-details"
+            },
+            {
+              id: "2",
+              title: "movie-3",
+              desc: "movie-3 description and with other text is goes here",
+              img: {
+                width: 500,
+                height: 400,
+                src: "/movie-images/img3.jpg"
+              },
+              width: "100%",
+              height: 175,
+              date: {
+                year: "2022",
+                month: "05",
+                dat: "04",
+                total: "2022/05/04"
+              },
+              pageLink: "http://example.com/movie-3-details"
+            },
+            {
+              id: "3",
+              title: "movie-4",
+              desc: "movie-4 description and with other text is goes here",
+              img: {
+                width: 500,
+                height: 400,
+                src: "/movie-images/img4.jpg"
+              },
+              width: "100%",
+              height: 175,
+              date: {
+                year: "2023",
+                month: "01",
+                dat: "19",
+                total: "2023/01/19"
+              },
+              pageLink: "http://example.com/movie-4-details"
+            },
+            {
+              id: "4",
+              title: "movie-5",
+              desc: "movie-5 description and with other text is goes here",
+              img: {
+                width: 500,
+                height: 400,
+                src: "/movie-images/img5.jpeg"
+              },
+              width: "100%",
+              height: 175,
+              date: {
+                year: "2023",
+                month: "05",
+                dat: "21",
+                total: "2023/05/21"
+              },
+              pageLink: "http://example.com/movie-5-details"
+            },
+          ]}
+        />
       </div>
 
     </div>
