@@ -158,7 +158,7 @@ export default function HomePage() {
 
 
       {/* filters section */}
-      <div className="md:px-[50px] overflow-hidden max-md:mt-12 w-screen">
+      <div className="md:px-[50px] overflow-hidden max-md:mt-12">
 
         <FiltersWithDropDown
           items={
