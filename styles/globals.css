@@ -5,6 +5,11 @@
 
 
 
+
+.movieCardDarkLayer {
+    background: linear-gradient(360deg, #000000 11.6%, rgba(0, 0, 0, 0) 100%);
+}
+
 .chakra-portal > div {
     z-index: 999999;
 }

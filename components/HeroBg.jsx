@@ -30,12 +30,25 @@ export default function HeroBg() {
 
 
     return (
-        <Image
-            alt=""
-            width={imgSrc.width}
-            height={imgSrc.height}
-            src={imgSrc.src}
-            className="object-center object-contain h-auto w-full col-start-1 row-start-1"
-        />
+        <div className="relative">
+            
+            <div
+                className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-[#1E1E1E] to-[#1E1E1E]/5"
+            >    
+            </div>
+            <Image
+                alt=""
+                width={imgSrc.width}
+                height={imgSrc.height}
+                src={imgSrc.src}
+                className="object-center object-contain h-auto w-full"
+            />
+
+            <div
+                className="translate-y-1/2 absolute block bottom-0 bg-transparent
+                backdrop-blur-xl left-0 w-full h-16 bg-gradient-to-b from-transparent to-[#1E1E1E]/30"
+            >
+            </div>
+        </div>
     )
 }

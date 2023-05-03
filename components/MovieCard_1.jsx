@@ -21,12 +21,12 @@ export default function MovieCard_1({id, title, desc, date, pageLink, img, heigh
                 className="object-center object-cover w-full h-full"
             />
 
-            <p className="absolute top-2.5 left-2.5 text-white font-light font-[Lexend] text-sm">{date.year}</p>
-
             <div
-                className="absolute bottom-0 left-0 w-full h-full
-                bg-gradient-to-t from-black/90 via-black/20 to-transparent"
+                className="absolute bottom-0 left-0 w-full h-full movieCardDarkLayer"
             ></div>
+
+            <p className="z-10 absolute top-2.5 left-2.5 text-white font-light font-[Lexend] text-sm">{date.year}</p>
+
 
             <div className="absolute bottom-2.5 left-0 px-2.5 w-full z-20">
                 <div className="flex items-center justify-between w-full">

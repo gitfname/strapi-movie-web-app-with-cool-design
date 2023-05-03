@@ -38,17 +38,16 @@ export default function HomePage() {
 
       
       {/* hero section */}
-      <div className="w-full min-h-screen h-max relative grid grid-cols-1 max-md:pb-8">
-
-        <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-[#1E1E1E] to-[#1E1E1E]/5"></div>
-
+      <div className="w-full h-max relative grid grid-cols-1 max-md:pb-8">
 
         {/*  */}
-        <HeroBg />
+        <div className="col-start-1 row-start-1">
+          <HeroBg />
+        </div>
 
         <div
-          className="z-10 relative w-full h-full lg:px-[50px] max-md:pt-20 lg:pt-36
-          grid gap-y-14 md:grid-cols-2  col-start-1 row-start-1"
+          className="z-10 relative w-full h-max lg:px-[50px] max-md:pt-20 lg:pt-36
+          grid gap-y-10 md:grid-cols-2  col-start-1 row-start-1"
         >
           <div className="flex flex-col items-start w-full max-md:pl-[31px]">
             <p className="text-3xl lg:text-4xl font-[Raleway] font-bold text-white max-w-xs">
@@ -94,14 +93,14 @@ export default function HomePage() {
           </div>
 
         </div>
-
-        <div className="md:translate-y-1/2 absolute block bottom-0 bg-transparent backdrop-blur-xl left-0 w-full h-16 bg-gradient-to-b from-transparent to-[#1E1E1E]/30"></div>
         
       </div>
 
       {/* Genres section */}
       <div
-        className="w-full z-10 px-[25px] md:px-[50px] md:-translate-y-20 lg:-translate-y-24 max-lg:mt-12 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 md:gap-x-[70px] gap-y-10
+        className="
+          w-full z-10 px-[25px] md:px-[50px] md:-translate-y-20 lg:-translate-y-24 max-lg:mt-12
+          grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 md:gap-x-[70px] gap-y-10
         "
       >
 
