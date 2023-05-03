@@ -20,7 +20,7 @@ function DropDown({img, text, items=[]}) {
         <Menu onOpen={() => setIsopen(true)} onClose={() => setIsopen(false)}>
             <MenuButton
                 as="button"
-                className="w-[200px] h-[44px] bg-white/[2%] rounded-lg shadow-lg shadow-black/10"
+                className="min-w-[200px] h-[44px] bg-white/[2%] rounded-lg shadow-lg shadow-black/10"
             >
                 <div className="flex items-center py-3 gap-x-3 px-4">
                     <Image
@@ -28,10 +28,10 @@ function DropDown({img, text, items=[]}) {
                         height={24}
                         alt=""
                         src={img}
-                        className="object-center object-cover"
+                        className="object-center object-cover flex-shrink-0"
                     />
-                    <p className="text-sm flex-1 font-[Lexend] text-center text-white font-light pointer-events-none">{text}</p>
-                    <IoIosArrowDown className={`w-4 h-4 fill-white pointer-events-none transition-transform duration-200 ease-in ${isOpen&&"rotate-180"}`} />
+                    <p className="text-sm flex-1 flex-shrink-0 w-max font-[Lexend] text-center text-white font-light pointer-events-none">{text}</p>
+                    <IoIosArrowDown className={`w-4 h-4 flex-shrink-0 fill-white pointer-events-none transition-transform duration-200 ease-in ${isOpen&&"rotate-180"}`} />
                 </div>
             </MenuButton>
 

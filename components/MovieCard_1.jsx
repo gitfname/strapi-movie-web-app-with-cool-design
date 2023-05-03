@@ -12,7 +12,7 @@ export default function MovieCard_1({id, title, desc, date, pageLink, img, heigh
             className="rounded-lg overflow-hidden"
         >
 
-            <div className=" w-full h-full relative -z-10">
+            <div className="w-full h-full relative">
             <Image
                 width={img.width}
                 height={img.height}
@@ -25,7 +25,7 @@ export default function MovieCard_1({id, title, desc, date, pageLink, img, heigh
 
             <div
                 className="absolute bottom-0 left-0 w-full h-full
-                bg-gradient-to-t from-black/70 via-black/5 to-transparent"
+                bg-gradient-to-t from-black/90 via-black/20 to-transparent"
             ></div>
 
             <div className="absolute bottom-2.5 left-0 px-2.5 w-full z-20">

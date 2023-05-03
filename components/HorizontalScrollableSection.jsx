@@ -10,7 +10,7 @@ import Image from "next/image"
 export default function HorizontalScrollableSection({
     items=[], title, showSeeMore=false, containerClass, buttonsPlace="tr",
     slideW="full", slideH="full", spaceBetween=40, slidesPerView=1, slidesPerView_sm=null,
-    slidesPerView_md=null, slidesPerView_lg=null, renderSlideTemplate
+    slidesPerView_md=null, slidesPerView_lg=null, renderSlideTemplate, showPrevNextButtons=true
 }) {
 
     const [additionalPrevButtonClasses, setAdditionalPrevButtonClasses] = useState([])
@@ -44,18 +44,20 @@ export default function HorizontalScrollableSection({
     }
 
     const handleOnSlideChange = swiper => {
-        if(swiper?.isBeginning) {
-            document.getElementById("previous-button").classList.add("!fill-white/30")
-        }
-        else if(swiper?.isEnd) {
-            document.getElementById("next-button").classList.add("!fill-white/30")
-        }
-        else {
-            const prevBtn = document.getElementById("previous-button")
-            const nextBtn = document.getElementById("next-button")
-
-            prevBtn.classList.contains("!fill-white/30")&&prevBtn.classList.remove("!fill-white/30")
-            nextBtn.classList.contains("!fill-white/30")&&nextBtn.classList.remove("!fill-white/30")
+        if(showPrevNextButtons) {
+            if(swiper?.isBeginning) {
+                document.getElementById("previous-button").classList.add("!fill-white/30")
+            }
+            else if(swiper?.isEnd) {
+                document.getElementById("next-button").classList.add("!fill-white/30")
+            }
+            else {
+                const prevBtn = document.getElementById("previous-button")
+                const nextBtn = document.getElementById("next-button")
+    
+                prevBtn.classList.contains("!fill-white/30")&&prevBtn.classList.remove("!fill-white/30")
+                nextBtn.classList.contains("!fill-white/30")&&nextBtn.classList.remove("!fill-white/30")
+            }
         }
     }
 
@@ -89,7 +91,7 @@ export default function HorizontalScrollableSection({
                 <p className="text-base tracking-wide text-white font-[Raleway] font-semibold leading-7">{title}</p>
 
                 {
-                    buttonsPlace==="tr"&&PrevNextButtons
+                    showPrevNextButtons&&buttonsPlace==="tr"&&PrevNextButtons
                 }
 
             </div>
@@ -139,7 +141,7 @@ export default function HorizontalScrollableSection({
             <div className="mt-1.5 flex items-center justify-between">
                 
                 {
-                    buttonsPlace==="br"
+                    showPrevNextButtons&&buttonsPlace==="br"
                     ?
                         (
                             <>
@@ -148,7 +150,7 @@ export default function HorizontalScrollableSection({
                             </>
                         )
                     :
-                        buttonsPlace==="bl"
+                        showPrevNextButtons&&buttonsPlace==="bl"
                         ?
                             (
                                 <>
@@ -157,7 +159,7 @@ export default function HorizontalScrollableSection({
                                 </>
                             )
                         :
-                            buttonsPlace==="bc"&&(
+                            showPrevNextButtons&&buttonsPlace==="bc"&&(
                                 <>
                                     <div></div>
                                     {PrevNextButtons}

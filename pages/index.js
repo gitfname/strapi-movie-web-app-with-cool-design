@@ -9,6 +9,7 @@ import Image from "next/image"
 import { useEffect, useId } from "react"
 import BScroll from "better-scroll"
 import MovieCard_1 from "@/components/MovieCard_1"
+import HeroBg from "@/components/HeroBg"
 const HorizontalScrollableSection = dynamic(() => import("@/components/HorizontalScrollableSection"), {ssr: false})
 
 export default function HomePage() {
@@ -37,24 +38,19 @@ export default function HomePage() {
 
       
       {/* hero section */}
-      <div className="w-full min-h-screen relative grid grid-cols-1 max-md:pb-8">
+      <div className="w-full min-h-screen h-max relative grid grid-cols-1 max-md:pb-8">
 
         <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-[#1E1E1E] to-[#1E1E1E]/5"></div>
 
 
-        <Image
-          alt=""
-          width={1920}
-          height={1080}
-          src="/bg-desktop.png"
-          className="object-center object-cover h-full w-screen col-start-1 row-start-1"
-        />
+        {/*  */}
+        <HeroBg />
 
         <div
-          className="z-10 relative w-full h-full px-[50px]
-          grid gap-y-14 place-items-center md:grid-cols-2  col-start-1 row-start-1"
+          className="z-10 relative w-full h-full lg:px-[50px] max-md:pt-20 lg:pt-36
+          grid gap-y-14 md:grid-cols-2  col-start-1 row-start-1"
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col items-start w-full max-md:pl-[31px]">
             <p className="text-3xl lg:text-4xl font-[Raleway] font-bold text-white max-w-xs">
               Let’s Make Your
             </p>
@@ -66,7 +62,7 @@ export default function HomePage() {
               You can still enjoy the latest movies and other movies online and at a lower price
             </p>
 
-            <div className="mt-5 flex items-center gap-x-10">
+            <div className="mt-5 flex items-center gap-x-3.5">
               <div className="flex-shrink-0">
                 <CTA text="Get Started" />
               </div>
@@ -265,8 +261,9 @@ export default function HomePage() {
         <HorizontalScrollableSection
           title="Hot Movies"
           showSeeMore={true}
+          showPrevNextButtons={false}
           slideH={195}
-          slidesPerView={2}
+          slidesPerView={1}
           slidesPerView_sm={2}
           slidesPerView_md={3}
           slidesPerView_lg={3}
