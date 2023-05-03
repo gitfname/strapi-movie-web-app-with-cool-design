@@ -19,14 +19,15 @@ export default function HeroBg() {
     const windowSize = useWindowSize()
     const [imgSrc, setImgSrc] = useState(desktop)
 
-    if(windowSize?.width && windowSize.width > 640) {
-        console.log("desktop");
-        imgSrc.type === "phone" && setImgSrc(desktop)
+    if(windowSize?.width) {
+        if(windowSize?.width && windowSize.width > 640) {
+            imgSrc.type === "phone" && setImgSrc(desktop)
+        }
+        else {
+            imgSrc.type === "desktop" && setImgSrc(phone)
+        }
     }
-    else {
-        console.log("phone");
-        imgSrc.type === "desktop" && setImgSrc(phone)
-    }
+
 
     return (
         <Image
