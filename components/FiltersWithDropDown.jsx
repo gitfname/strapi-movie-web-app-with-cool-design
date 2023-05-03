@@ -87,7 +87,7 @@ export default function FiltersWithDropDown({items=[]}) {
     )
 
     return (
-        <div id={FilterByGenreTagContainerId} className="container-scroll w-full overflow-x-hidden px-5">
+        <div id={FilterByGenreTagContainerId} className="container-scroll w-full max-lg:w-[calc(100%-48px)] mx-auto rounded-lg overflow-x-hidden">
             <div className="w-max min-w-full bg-white/[3%] rounded-lg py-4 px-7 flex gap-x-10 items-center justify-center">
                 {
                     items.map(item => <DropDown {...item} />)

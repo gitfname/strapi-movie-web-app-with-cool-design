@@ -241,7 +241,7 @@ export default function HomePage() {
 
 
       {/* filters bye genre */}
-      <div id={filtersByeTypeId} className="px-[10px] md:w-11/12 mx-auto overflow-hidden mt-5">
+      <div id={filtersByeTypeId} className="p-0.5 max-lg:w-[calc(100%-48px)] md:px-[50px] mx-auto overflow-hidden mt-5">
         <div className="w-max flex items-center flex-nowrap gap-x-3">
           <FilterByeGenreTag text="All" active />
           <FilterByeGenreTag text="Genre" />
