@@ -1,7 +1,36 @@
 import Image from "next/image";
 import { play_svg } from "@/lib/svg";
 
-export default function MovieCard_2({id, title, pageLink, img, height, width, desc, imdb}) {
+
+function Icon({icon}) {
+
+    return (
+        <div
+            className={
+                `stroke-white hover:stroke-red-500 transition-colors duration-200 cursor-pointer inline-block`
+            }
+        >
+            { icon ? icon : play_svg("", 24, 24)}
+        </div>
+    )
+
+}
+
+function Imdb({imdb}) {
+    return (
+        <p
+            className="py-1.5 w-max leading-none px-2.5 bg-red-500 text-white
+            text-xs text-[10px] font-[Lexend] font-light rounded-full"
+        >
+            {imdb}
+        </p>
+    )
+}
+
+export default function MovieCard_2({
+    id, title, pageLink, img, height, width, desc, imdb, icon=null,
+    iconPos="br", hideDetails=true
+}) {
 
     return (
         <div
@@ -22,17 +51,35 @@ export default function MovieCard_2({id, title, pageLink, img, height, width, de
                 />
 
                 <div
-                    className="z-10 absolute top-0 left-0 w-full h-full bg-transparent pointer-events-none opacity-0
-                    group-hover:bg-black/60 group-hover:pointer-events-auto group-hover:opacity-100 transition-all
-                    duration-200 flex flex-col justify-between p-2 gap-y-1">
+                    className={
+                        hideDetails
+                        ?
+                            `z-10 absolute top-0 left-0 w-full h-full bg-transparent pointer-events-none opacity-0
+                            group-hover:bg-black/60 group-hover:pointer-events-auto group-hover:opacity-100 transition-all
+                            duration-200 flex flex-col justify-between p-2 gap-y-1`
+                        :
+                            `z-10 absolute top-0 left-0 w-full h-full bg-black/60 transition-all
+                            duration-200 flex flex-col justify-between p-2 gap-y-1`
+                }>
 
-                        <div>
-                            <p
-                                className="py-1.5 w-max leading-none px-2.5 bg-red-500 text-white
-                                text-xs text-[10px] font-[Lexend] font-light rounded-full"
-                            >
-                                {imdb}
-                            </p>
+                        <div className="flex items-center justify-between">
+                            {
+                                iconPos==="tl"
+                                ?
+                                    <>
+                                        <Icon icon={icon} />
+                                        <Imdb imdb={imdb} />
+                                    </>
+                                :
+                                iconPos==="tr"
+                                ?
+                                    <>
+                                        <Imdb imdb={imdb} />
+                                        <Icon icon={icon} />
+                                    </>
+                                :
+                                <Imdb imdb={imdb} />
+                            }
                         </div>
 
                         <div className="flex-1 flex items-end">
@@ -42,13 +89,11 @@ export default function MovieCard_2({id, title, pageLink, img, height, width, de
                             </p>
                         </div>
 
-                        <div className="flex justify-end pt-1">
-                            <span className="stroke-white hover:stroke-red-500 transition-colors duration-200 cursor-pointer">
-                                {play_svg("", 24, 24)}
-                            </span>
-                        </div>
-
-                        
+                        <div className={`flex pt-1 ${iconPos==="br"?"justify-end":iconPos==="bl"?"justify-start":iconPos==="bc"&&"justify-center"}`}>
+                            {
+                                iconPos.startsWith('b')&&<Icon icon={icon} />
+                            }
+                        </div>                        
 
                 </div>
             </div>
@@ -56,7 +101,6 @@ export default function MovieCard_2({id, title, pageLink, img, height, width, de
 
             <p className="text-white leading-4 mt-1 px-0.5 text-xs font-[Lexend] font-light text-center line-clamp-2">
                 {title}
-                and with other things
             </p>
 
         </div>

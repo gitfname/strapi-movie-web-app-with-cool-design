@@ -6,6 +6,10 @@
 
 
 
+.movieCard2_darkLayer {
+    background: linear-gradient(89.95deg, rgba(0, 0, 0, 0.8) -21.38%, rgba(0, 0, 0, 0) 103.64%);
+}
+
 .movieCardDarkLayer {
     background: linear-gradient(360deg, #000000 11.6%, rgba(0, 0, 0, 0) 100%);
 }
