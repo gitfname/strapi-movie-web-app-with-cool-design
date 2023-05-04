@@ -2,7 +2,6 @@ import Image from "next/image";
 import { play_svg } from "@/lib/svg";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { useState } from "react";
 
 
 function Icon({icon}) {
@@ -42,7 +41,7 @@ function Imdb({imdb}) {
 
 export default function MovieCard_4({
     id, title, pageLink, img, height, width, desc, imdb, icon=null, date,
-    iconPos="br", hideDetails=true
+    iconPos="br", hideDetails=true, genre
 }) {
 
     return (
@@ -54,7 +53,8 @@ export default function MovieCard_4({
             className="overflow-hidden w-full h-full grid grid-cols-1 grid-rows-[1fr_max-content]"
         >
 
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full group">
+
                 <Image
                     width={img.width}
                     height={img.height}
@@ -75,38 +75,13 @@ export default function MovieCard_4({
                             duration-200 flex flex-col justify-between p-2 gap-y-1`
                 }>
 
-                        <div className="flex items-center justify-between">
-                            {
-                                iconPos==="tl"
-                                ?
-                                    <>
-                                        <Icon icon={icon} />
-                                        <Imdb imdb={imdb} />
-                                    </>
-                                :
-                                iconPos==="tr"
-                                ?
-                                    <>
-                                        <Imdb imdb={imdb} />
-                                        <Icon icon={icon} />
-                                    </>
-                                :
-                                <Imdb imdb={imdb} />
-                            }
-                        </div>
-
-                        <div className="flex-1 flex items-end">
-                            <p
-                                className="text-white text-xs text-[11px] line-clamp-4 font-light font-[Lexend]">
-                                    {desc}
-                            </p>
-                        </div>
-
-                        <div className={`flex pt-1 ${iconPos==="br"?"justify-end":iconPos==="bl"?"justify-start":iconPos==="bc"&&"justify-center"}`}>
-                            {
-                                iconPos.startsWith('b')&&<Icon icon={icon} />
-                            }
-                        </div>                        
+                    <div className="flex items-center gap-x-1.5 flex-wrap">
+                        {
+                            genre.map(genre => (
+                                <p className="text-xs !text-[11px] tracking-wide font-medium font-[Lexend] text-black/90 bg-gray-100 rounded py-0.5 px-1.5 cursor-pointer">{genre}</p>
+                            ))
+                        }
+                    </div>                      
 
                 </div>
             </div>
