@@ -1,39 +1,39 @@
-import { useMemo, useState } from "react"
-
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
-
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
 import Image from "next/image"
+import { useMediaQuery } from "@chakra-ui/react"
+
+
 
 
 export default function HorizontalScrollableSection({
     items=[], title, showSeeMore=false, containerClass, buttonsPlace="tr",
     slideW="full", slideH="full", spaceBetween=40, slidesPerView=1, slidesPerView_sm=null,
-    slidesPerView_md=null, slidesPerView_lg=null, renderSlideTemplate, showPrevNextButtons=true
+    slidesPerView_md=null, slidesPerView_lg=null, slidesPerView_xl=null, renderSlideTemplate, showPrevNextButtons=true
 }) {
+
+    const [xs, sm, md, lg, xl] = useMediaQuery([
+        "(max-width: 640px)",
+        "(min-width: 641px) and (max-width: 768px)",
+        "(min-width: 769px) and (max-width: 1024px)",
+        "(min-width: 1025px) and (max-width: 1280px)",
+        "(min-width: 1281px)",
+    ])
 
     const [additionalPrevButtonClasses, setAdditionalPrevButtonClasses] = useState([])
     const [additionalNextButtonClasses, setAdditionalNextButtonClasses] = useState([])
     const [swiperInstance, setSwiperInstance] = useState(null)
 
-    const _SlidesPerView = useMemo(() => (
-        window.innerWidth < 640
-        ?
-            slidesPerView
-        :
-        (slidesPerView_sm && window.innerWidth >= 640 && window.innerWidth < 768)
-        ?
-            slidesPerView_sm
-        :
-        (slidesPerView_md && window.innerWidth >= 768 && window.innerWidth < 1024)
-        ?
-            slidesPerView_md
-        :
-        (slidesPerView_lg && window.innerWidth >= 1024)&& slidesPerView_lg
-    ), [])
+    const _SlidesPerView = (
+        xs ? slidesPerView :
+            sm ? slidesPerView_sm :
+                md ? slidesPerView_md :
+                    lg ? slidesPerView_lg :
+                        xl && slidesPerView_xl
 
-    console.log(_SlidesPerView);
+    )
 
     const handleOnPrevClick = () => {
         swiperInstance?.slidePrev&&swiperInstance?.slidePrev()
@@ -43,7 +43,7 @@ export default function HorizontalScrollableSection({
         swiperInstance?.slideNext&&swiperInstance?.slideNext()
     }
 
-    const handleOnSlideChange = swiper => {
+    const handleOnSlideChange = useCallback((swiper) => {
         if(showPrevNextButtons) {
             if(swiper?.isBeginning) {
                 document.getElementById("previous-button").classList.add("!fill-white/30")
@@ -59,9 +59,21 @@ export default function HorizontalScrollableSection({
                 nextBtn.classList.contains("!fill-white/30")&&nextBtn.classList.remove("!fill-white/30")
             }
         }
-    }
+    }, [showPrevNextButtons])
+
+    useEffect(
+        () => {
+            if(swiperInstance?.slideTo) {
+                setTimeout(() => {
+                    swiperInstance.slideTo(0, 0, false)
+                }, 300);
+            }
+        },
+        [swiperInstance]
+    )
 
     const handleOnSwiper = swiper => {
+        console.log("swiper loaded");
         setSwiperInstance(swiper)
         if(swiper?.isBeginning) {
             additionalPrevButtonClasses.push("!fill-white/30")
@@ -115,7 +127,7 @@ export default function HorizontalScrollableSection({
                 }
                 {
                     showSeeMore&&(
-                        <SwiperSlide className="!w-5/12">
+                        <SwiperSlide>
                             <div
                                 style={{
                                     height:(typeof slideH==="string"?slideH:slideH+"px"),

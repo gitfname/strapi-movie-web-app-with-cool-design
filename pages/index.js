@@ -269,10 +269,11 @@ export default function HomePage() {
           showSeeMore={true}
           showPrevNextButtons={false}
           slideH={195}
-          slidesPerView="auto"
+          slidesPerView={1}
           slidesPerView_sm={2}
           slidesPerView_md={3}
           slidesPerView_lg={3}
+          slidesPerView_xl={4}
           renderSlideTemplate={item => <MovieCard_1 {...item}/>}
           items={[
             {
@@ -382,9 +383,10 @@ export default function HomePage() {
           showSeeMore={false}
           showPrevNextButtons={true}
           slidesPerView={2}
-          slidesPerView_sm={2}
+          slidesPerView_sm={3}
           slidesPerView_md={4}
           slidesPerView_lg={6}
+          slidesPerView_xl={6}
           spaceBetween={25}
           renderSlideTemplate={item => <MovieCard_2 {...item} />}
           items={recommendMovies}

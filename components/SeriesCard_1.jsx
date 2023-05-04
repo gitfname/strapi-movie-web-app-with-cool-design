@@ -11,7 +11,7 @@ export default function SeriesCard_1({title, date, height=0, img={width:0, heigh
                 height={img.height}
                 alt=""
                 src={img.src}
-                className="object-center object-cover rounded-lg"
+                className="object-center object-cover rounded-lg w-full"
                 style={{
                     height: height
                 }}
