@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useId, useMemo, useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
@@ -13,6 +13,9 @@ export default function HorizontalScrollableSection({
     slideW="full", slideH="full", spaceBetween=40, slidesPerView=1, slidesPerView_sm=null,
     slidesPerView_md=null, slidesPerView_lg=null, slidesPerView_xl=null, renderSlideTemplate, showPrevNextButtons=true
 }) {
+
+    const prevBtnId = useId()
+    const nextBtnId = useId()
 
     const [xs, sm, md, lg, xl] = useMediaQuery([
         "(max-width: 640px)",
@@ -46,14 +49,14 @@ export default function HorizontalScrollableSection({
     const handleOnSlideChange = useCallback((swiper) => {
         if(showPrevNextButtons) {
             if(swiper?.isBeginning) {
-                document.getElementById("previous-button").classList.add("!fill-white/30")
+                document.getElementById(prevBtnId).classList.add("!fill-white/30")
             }
             else if(swiper?.isEnd) {
-                document.getElementById("next-button").classList.add("!fill-white/30")
+                document.getElementById(nextBtnId).classList.add("!fill-white/30")
             }
             else {
-                const prevBtn = document.getElementById("previous-button")
-                const nextBtn = document.getElementById("next-button")
+                const prevBtn = document.getElementById(prevBtnId)
+                const nextBtn = document.getElementById(nextBtnId)
     
                 prevBtn.classList.contains("!fill-white/30")&&prevBtn.classList.remove("!fill-white/30")
                 nextBtn.classList.contains("!fill-white/30")&&nextBtn.classList.remove("!fill-white/30")
@@ -73,7 +76,6 @@ export default function HorizontalScrollableSection({
     )
 
     const handleOnSwiper = swiper => {
-        console.log("swiper loaded");
         setSwiperInstance(swiper)
         if(swiper?.isBeginning) {
             additionalPrevButtonClasses.push("!fill-white/30")
@@ -84,11 +86,11 @@ export default function HorizontalScrollableSection({
         () => {
             return (<div className="flex items-center gap-x-1">
                 <div onClick={handleOnPrevClick} className="select-none hover:bg-white/[8%] active:scale-95 rounded-lg transition-all duration-200 cursor-pointer p-1.5">
-                    <MdKeyboardArrowLeft id="previous-button" className={`transition-colors duration-200 w-4 h-4 fill-white ${additionalPrevButtonClasses.join(" ")}`} />
+                    <MdKeyboardArrowLeft id={prevBtnId} className={`transition-colors duration-200 w-4 h-4 fill-white ${additionalPrevButtonClasses.join(" ")}`} />
                 </div>
                 
                 <div onClick={handleOnNextCLick} className="select-none hover:bg-white/[8%] active:scale-95 rounded-lg transition-all duration-200 cursor-pointer p-1.5">
-                    <MdKeyboardArrowRight id="next-button" className={`transition-colors duration-200 w-4 h-4 fill-white ${additionalNextButtonClasses.join(" ")}`} />
+                    <MdKeyboardArrowRight id={nextBtnId} className={`transition-colors duration-200 w-4 h-4 fill-white ${additionalNextButtonClasses.join(" ")}`} />
                 </div>
             </div>)
         },

@@ -18,6 +18,9 @@ import { play_svg2 } from "@/lib/svg"
 import recommendMovies from "@/lib/db/recommendMovies"
 import MovieCard_3 from "@/components/MovieCard_3"
 import SeriesCard_1 from "@/components/SeriesCard_1"
+import newMovies from "@/lib/db/newMovies"
+import TvSeries from "@/lib/db/TvSeries"
+import MovieCard_4 from "@/components/MovieCard_4"
 
 export default function HomePage() {
 
@@ -418,6 +421,42 @@ export default function HomePage() {
           title="The Last Thing He Told Me"
           date="Apr 13, 2023"
           episodesCount={11}
+        />
+      </div>
+
+      
+      {/* new movies */}
+      <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
+        <HorizontalScrollableSection
+          title="New Movies"
+          showSeeMore={false}
+          showPrevNextButtons={false}
+          slidesPerView={1}
+          slidesPerView_sm={2}
+          slidesPerView_md={3}
+          slidesPerView_lg={3}
+          slidesPerView_xl={5}
+          spaceBetween={25}
+          renderSlideTemplate={item => <MovieCard_1 {...item} />}
+          items={newMovies}
+        />
+      </div>
+
+
+      {/* Tv Series */}
+      <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
+        <HorizontalScrollableSection
+          title="Tv Series"
+          showSeeMore={false}
+          showPrevNextButtons={true}
+          slidesPerView={2}
+          slidesPerView_sm={3}
+          slidesPerView_md={4}
+          slidesPerView_lg={5}
+          slidesPerView_xl={6}
+          spaceBetween={25}
+          renderSlideTemplate={item => <MovieCard_4 {...item} />}
+          items={TvSeries}
         />
       </div>
 
