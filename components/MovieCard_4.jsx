@@ -2,6 +2,7 @@ import Image from "next/image";
 import { play_svg } from "@/lib/svg";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { MdKeyboardArrowRight } from "react-icons/md";
+import MovieGenreBadge from "./MovieGenreBadge_1";
 
 
 function Icon({icon}) {
@@ -77,8 +78,8 @@ export default function MovieCard_4({
 
                     <div className="flex items-center gap-x-1.5 flex-wrap">
                         {
-                            genre.map(genre => (
-                                <p className="text-xs !text-[11px] tracking-wide font-medium font-[Lexend] text-black/90 bg-gray-100 rounded py-0.5 px-1.5 cursor-pointer">{genre}</p>
+                            genre.map((genre, i) => (
+                                <MovieGenreBadge key={i} text={genre} />
                             ))
                         }
                     </div>                      

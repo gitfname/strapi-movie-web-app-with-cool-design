@@ -18,6 +18,8 @@ import SeriesCard_1 from "@/components/SeriesCard_1"
 import newMovies from "@/lib/db/newMovies"
 import TvSeries from "@/lib/db/TvSeries"
 import MovieCard_4 from "@/components/MovieCard_4"
+import topTenMovies from "@/lib/db/topTenMovies"
+import MovieCard_5 from "@/components/MovieCard_5"
 
 export default function HomePage() {
 
@@ -454,6 +456,25 @@ export default function HomePage() {
           spaceBetween={25}
           renderSlideTemplate={item => <MovieCard_4 {...item} />}
           items={TvSeries}
+        />
+      </div>
+
+
+      {/* Top Ten Movies */}
+      <div className="w-full lg:px-[50px] mt-[34px]">
+        <HorizontalScrollableSection
+          title="Top Ten Movies"
+          slideH={210}
+          showSeeMore={true}
+          showPrevNextButtons={false}
+          slidesPerView={1}
+          slidesPerView_sm={2}
+          slidesPerView_md={3}
+          slidesPerView_lg={4}
+          slidesPerView_xl={5}
+          spaceBetween={25}
+          renderSlideTemplate={item => <MovieCard_5 {...item} />}
+          items={topTenMovies}
         />
       </div>
 
