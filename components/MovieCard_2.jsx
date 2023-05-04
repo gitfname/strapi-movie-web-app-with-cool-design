@@ -38,16 +38,16 @@ export default function MovieCard_2({
                 width: width,
                 height: height
             }}
-            className="overflow-hidden h-full"
+            className="overflow-hidden w-full h-full grid grid-cols-1 grid-rows-[84%_max-content]"
         >
 
-            <div className="relative group">
+            <div className="relative w-full h-full">
                 <Image
                     width={img.width}
                     height={img.height}
                     alt=""
                     src={img.src}
-                    className="object-center object-cover w-full h-[80%]"
+                    className="object-center object-cover w-full h-full block"
                 />
 
                 <div

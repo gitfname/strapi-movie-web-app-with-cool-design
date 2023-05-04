@@ -381,7 +381,6 @@ export default function HomePage() {
           title="Recommend"
           showSeeMore={false}
           showPrevNextButtons={true}
-          slideH={260}
           slidesPerView={2}
           slidesPerView_sm={2}
           slidesPerView_md={4}
