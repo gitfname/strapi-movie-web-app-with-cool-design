@@ -12,9 +12,6 @@ import MovieCard_1 from "@/components/MovieCard_1"
 import HeroBg from "@/components/HeroBg"
 import MovieCard_2 from "@/components/MovieCard_2"
 const HorizontalScrollableSection = dynamic(() => import("@/components/HorizontalScrollableSection"), {ssr: false})
-
-import { MdPlayCircle, MdRecommend } from "react-icons/md"
-import { play_svg2 } from "@/lib/svg"
 import recommendMovies from "@/lib/db/recommendMovies"
 import MovieCard_3 from "@/components/MovieCard_3"
 import SeriesCard_1 from "@/components/SeriesCard_1"
@@ -426,7 +423,7 @@ export default function HomePage() {
 
       
       {/* new movies */}
-      <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
+      <div className="w-full lg:px-[50px] mt-[34px]">
         <HorizontalScrollableSection
           title="New Movies"
           showSeeMore={false}
@@ -444,7 +441,7 @@ export default function HomePage() {
 
 
       {/* Tv Series */}
-      <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
+      <div className="w-full lg:px-[50px] mt-[34px]">
         <HorizontalScrollableSection
           title="Tv Series"
           showSeeMore={false}
