@@ -17,6 +17,7 @@ import { MdPlayCircle, MdRecommend } from "react-icons/md"
 import { play_svg2 } from "@/lib/svg"
 import recommendMovies from "@/lib/db/recommendMovies"
 import MovieCard_3 from "@/components/MovieCard_3"
+import SeriesCard_1 from "@/components/SeriesCard_1"
 
 export default function HomePage() {
 
@@ -268,7 +269,7 @@ export default function HomePage() {
           showSeeMore={true}
           showPrevNextButtons={false}
           slideH={195}
-          slidesPerView={1}
+          slidesPerView="auto"
           slidesPerView_sm={2}
           slidesPerView_md={3}
           slidesPerView_lg={3}
@@ -392,7 +393,7 @@ export default function HomePage() {
       </div>
 
 
-      <div className="mt-2 px-[25px] lg:px-[50px] grid gap-y-6 grid-cols-1 lg:grid-cols-[65%_1fr] h-[350px] lg:h-[270px] gap-x-9">
+      <div className="mt-2 px-[25px] lg:px-[50px] grid gap-y-6 grid-cols-1 grid-rows-[240px_240px] lg:grid-rows-1 lg:grid-cols-[65%_1fr] lg:h-[260px] gap-x-9">
         <MovieCard_3
           width="100%"
           height="100%"
@@ -401,22 +402,21 @@ export default function HomePage() {
             height: 480,
             src: "/movie-images/img1.jpg"
           }}
-          title="movie-1 name"
-          date="2023/03/11"
+          title="Oppenheimer"
+          date="Jul 19, 2023"
           desc="The story of J. Robert Oppenheimer’s role in the development of the atomic bomb during World War II."
         />
 
-        <MovieCard_3
-          width="100%"
+        <SeriesCard_1
           height="100%"
           img={{
             width: 720,
             height: 480,
-            src: "/movie-images/img2.jpg"
+            src: "/movie-images/img53.jpg"
           }}
-          title="movie-2 name"
-          date="2023/03/12"
-          desc="The story of J. Robert Oppenheimer’s role in the development of the atomic bomb during World War II."
+          title="The Last Thing He Told Me"
+          date="Apr 13, 2023"
+          episodesCount={11}
         />
       </div>
 

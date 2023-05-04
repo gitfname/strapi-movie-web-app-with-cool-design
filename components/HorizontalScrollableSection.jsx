@@ -115,7 +115,7 @@ export default function HorizontalScrollableSection({
                 }
                 {
                     showSeeMore&&(
-                        <SwiperSlide className="w-full">
+                        <SwiperSlide className="!w-5/12">
                             <div
                                 style={{
                                     height:(typeof slideH==="string"?slideH:slideH+"px"),
