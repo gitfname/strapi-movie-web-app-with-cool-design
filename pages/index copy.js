@@ -22,8 +22,6 @@ import topTenMovies from "@/lib/db/topTenMovies"
 import MovieCard_5 from "@/components/MovieCard_5"
 import MovieCard_6 from "@/components/MovieCard_6"
 import SeriesCard_2 from "@/components/SeriesCard_2"
-import animations from "@/lib/db/animations"
-import MovieCard_7 from "@/components/MovieCard_7"
 
 export default function HomePage() {
 
@@ -484,12 +482,12 @@ export default function HomePage() {
 
 
       {/* Top Ten Movies */}
-      <div className="mt-11 px-[25px] lg:px-[50px] grid gap-y-6 grid-cols-1 max-md:grid-rows-[220px_220px] lg:grid-rows-1 md:grid-cols-[1fr_65%] lg:h-[240px] gap-x-9">
+      <div className="mt-11 px-[25px] lg:px-[50px] grid gap-y-6 grid-cols-1 grid-rows-[220px_220px] lg:grid-rows-1 md:grid-cols-[1fr_65%] lg:h-[240px] gap-x-9">
         <MovieCard_6
           text_tl="Apr 05, 2023"
           text_tr="1 hr 32 min"
           text_bl="The Super Mario Bros"
-          height="100%"
+          height={240}
           img={{
             width: 720,
             height: 480,
@@ -520,16 +518,16 @@ export default function HomePage() {
         <HorizontalScrollableSection
           title="Animations"
           slideH={210}
-          showSeeMore={false}
-          showPrevNextButtons={true}
-          slidesPerView={2}
+          showSeeMore={true}
+          showPrevNextButtons={false}
+          slidesPerView={1}
           slidesPerView_sm={2}
           slidesPerView_md={3}
-          slidesPerView_lg={5}
+          slidesPerView_lg={4}
           slidesPerView_xl={5}
           spaceBetween={25}
-          renderSlideTemplate={item => <MovieCard_7 {...item} />}
-          items={animations}
+          renderSlideTemplate={item => <MovieCard_5 {...item} />}
+          items={topTenMovies}
         />
       </div>
 

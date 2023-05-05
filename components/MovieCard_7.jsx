@@ -40,7 +40,7 @@ function Imdb({imdb}) {
     )
 }
 
-export default function MovieCard_4({
+export default function MovieCard_7({
     id, title, pageLink, img, height, width, desc, imdb, icon=null, date,
     iconPos="br", hideDetails=true, genre
 }) {
@@ -70,20 +70,29 @@ export default function MovieCard_4({
                         ?
                             `z-10 absolute top-0 left-0 w-full h-full bg-transparent pointer-events-none opacity-0
                             group-hover:bg-black/60 group-hover:pointer-events-auto group-hover:opacity-100 transition-all
-                            duration-200 flex flex-col justify-between p-2 gap-y-1`
+                            duration-300 flex flex-col justify-between p-2 gap-y-1`
                         :
                             `z-10 absolute top-0 left-0 w-full h-full bg-black/60 transition-all
-                            duration-200 flex flex-col justify-between p-2 gap-y-1`
+                            duration-300 flex flex-col justify-between p-2 gap-y-1`
                 }>
 
-                    <div className="flex items-center gap-x-1.5 flex-wrap">
+                    <div className="flex items-center gap-1.5 flex-wrap">
                         {
                             genre.map((genre, i) => (
                                 <MovieGenreBadge key={i} text={genre} />
                             ))
                         }
-                    </div>                      
+                    </div>
 
+                    <p className="text-white text-xs tracking-wide font-light font-[Lexend] max-w-[35ch] line-clamp-6">
+                        {desc}
+                    </p>
+
+                </div>
+
+                <div className="absolute bottom-0 left-0 w-full h-full flex flex-col p-1.5 justify-end movieCard_7DarkLayer pointer-events-none transition-opacity group-hover:opacity-0 duration-300">
+                    <p className="text-center text-xs text-white font-light font-[Lexend] line-clamp-1">{title}</p>
+                    <p className="text-center text-xs text-white/70 font-light font-[Lexend] line-clamp-1">{date.total}</p>
                 </div>
             </div>
 
@@ -91,16 +100,11 @@ export default function MovieCard_4({
                 <div className="p-1 py-2 flex items-center justify-between">
 
                     <HeartIcon />
-                    <p className="text-xs !text-[11px] text-white/70 font-light font-[Lexend] tracking-wide leading-none">{date.year}</p>
-                    <div className="p-0.5 hover:bg-white/10 rounded transition-colors duration-200 cursor-pointer">
-                        <MdKeyboardArrowRight className="w-4 h-4 fill-white" />
+                    <div className="p-0.5 hover:bg-red-500 rounded transition-colors duration-200 cursor-pointer group">
+                        <MdKeyboardArrowRight className="w-4 h-4 fill-red-500 group-hover:fill-[#1E1E1E] transition-colors duration-200" />
                     </div>
 
                 </div>
-
-                <p className="text-white leading-4 mt-1 px-0.5 text-xs font-[Lexend] font-light text-center line-clamp-2">
-                    {title}
-                </p>
             </div>
 
 
