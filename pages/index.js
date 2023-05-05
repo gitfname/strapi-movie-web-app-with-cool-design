@@ -20,6 +20,7 @@ import TvSeries from "@/lib/db/TvSeries"
 import MovieCard_4 from "@/components/MovieCard_4"
 import topTenMovies from "@/lib/db/topTenMovies"
 import MovieCard_5 from "@/components/MovieCard_5"
+import MovieCard_6 from "@/components/MovieCard_6"
 
 export default function HomePage() {
 
@@ -84,16 +85,16 @@ export default function HomePage() {
             <StatusCard
               status={[
                 {
-                  img: <Image width={38} height={38} src="/clapperboard.svg" className="object-center object-cover" />,
+                  img: <Image alt="" width={38} height={38} src="/clapperboard.svg" className="object-center object-cover" />,
                   title: "10.000",
                   subtitle: "Movie Choice"
                 },
                 {
-                  img: <Image width={38} height={38} src="/film-reel.svg" className="object-center object-cover" />,
+                  img: <Image alt="" width={38} height={38} src="/film-reel.svg" className="object-center object-cover" />,
                   title: "Best Movies",
                 },
                 {
-                  img: <Image width={38} height={38} src="/video-recording.svg" className="object-center object-cover" />,
+                  img: <Image alt="" width={38} height={38} src="/video-recording.svg" className="object-center object-cover" />,
                   title: "800 +",
                   subtitle: "Series Choice"
                 }
@@ -475,6 +476,22 @@ export default function HomePage() {
           spaceBetween={25}
           renderSlideTemplate={item => <MovieCard_5 {...item} />}
           items={topTenMovies}
+        />
+      </div>
+
+
+      {/* Top Ten Movies */}
+      <div className="mt-2 px-[25px] lg:px-[50px] grid gap-y-6 grid-cols-1 grid-rows-[220px_220px] lg:grid-rows-1 md:grid-cols-[1fr_65%] lg:h-[240px] gap-x-9">
+        <MovieCard_6
+          text_tl="Apr 05, 2023"
+          text_tr="1 hr 32 min"
+          text_bl="The Super Mario Bros"
+          height={240}
+          img={{
+            width:600,
+            height: 600,
+            src: "/movie-images/img4.jpg"
+          }}
         />
       </div>
 
