@@ -21,6 +21,7 @@ import MovieCard_4 from "@/components/MovieCard_4"
 import topTenMovies from "@/lib/db/topTenMovies"
 import MovieCard_5 from "@/components/MovieCard_5"
 import MovieCard_6 from "@/components/MovieCard_6"
+import SeriesCard_2 from "@/components/SeriesCard_2"
 
 export default function HomePage() {
 
@@ -481,17 +482,33 @@ export default function HomePage() {
 
 
       {/* Top Ten Movies */}
-      <div className="mt-2 px-[25px] lg:px-[50px] grid gap-y-6 grid-cols-1 grid-rows-[220px_220px] lg:grid-rows-1 md:grid-cols-[1fr_65%] lg:h-[240px] gap-x-9">
+      <div className="mt-11 px-[25px] lg:px-[50px] grid gap-y-6 grid-cols-1 grid-rows-[220px_220px] lg:grid-rows-1 md:grid-cols-[1fr_65%] lg:h-[240px] gap-x-9">
         <MovieCard_6
           text_tl="Apr 05, 2023"
           text_tr="1 hr 32 min"
           text_bl="The Super Mario Bros"
           height={240}
           img={{
-            width:600,
-            height: 600,
+            width: 720,
+            height: 480,
             src: "/movie-images/img4.jpg"
           }}
+        />
+
+        <SeriesCard_2
+          width="100%"
+          height="100%"
+          img={{
+            width: 720,
+            height: 480,
+            src: "/movie-images/img1.jpg"
+          }}
+          title="Oppenheimer"
+          episodesCount={10}
+          date={{
+            year:"2023"
+          }}
+          desc="The story of J. Robert Oppenheimer’s role in the development of the atomic bomb during World War II."
         />
       </div>
 
