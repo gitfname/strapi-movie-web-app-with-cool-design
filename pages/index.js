@@ -602,6 +602,88 @@ export default function HomePage() {
 
       </div>
 
+      <p className="text-lg text-white font-bold font-[Raleway] text-center tracking-wide mt-16">
+        About US
+      </p>
+
+      <div className="mt-9 w-full px-[25px] flex flex-col items-center justify-center lg:grid lg:grid-cols-[65%_1fr] max-w-6xl mx-auto">
+
+        <div className="max-lg:flex flex-col items-center justify-center">
+
+          <div className="p-3 bg-white/5 rounded-lg max-w-lg">
+            <p className="text-white text-xs leading-[18px] font-[Lexend] font-light line-clamp-6">
+              Welcome to our movie website, where you'll find everything you need to know about the latest movies and upcoming releases. We offer an extensive selection of trailers, reviews, and behind-the-scenes content that will keep you informed and entertained.
+            </p>
+          </div>
+
+          <div className="lg:hidden w-max">
+            <Image
+              width={250}
+              height={250}
+              alt=""
+              src="/3D glasses-rafiki.svg"
+              className="object-center object-cover max-md:w-full w-72 h-60 -translate-y-14"
+            />
+          </div>
+
+          <div className="p-3 bg-white/5 rounded-lg max-w-xl lg:mt-[12px] max-lg:-translate-y-6">
+            <p className="text-white text-xs leading-[18px] font-[Lexend] font-light line-clamp-6">              
+              Our website is designed with the user in mind, providing easy navigation and a clean, modern design. You can browse by genre or search for specific titles using our intuitive search function.
+              Once you've found the movie you're interested in, you can read reviews from other users, watch trailers, and get all the information you need to make an informed decision about whether to see it.
+            </p>
+          </div>
+
+        </div>
+
+        <div className="max-lg:hidden">
+          <Image
+            width={250}
+            height={250}
+            alt=""
+            src="/3D glasses-rafiki.svg"
+            className="object-center object-cover w-80 h-60 -translate-y-14"
+          />
+        </div>
+
+
+      </div>
+
+      <div className="lg:mt-9 w-full px-[25px] flex flex-col items-center justify-center lg:grid lg:grid-cols-[1fr_65%] max-w-6xl mx-auto">
+        
+        <Image
+          width={250}
+          height={250}
+          alt=""
+          src="/3D glasses-amico.svg"
+          className="object-center object-cover w-64 h-64 max-lg:hidden lg:mx-auto"
+        />
+
+        <div className="flex flex-col items-end max-lg:items-center">
+
+          <div className="p-3 bg-white/5 rounded-lg max-w-lg">
+            <p className="text-white text-xs leading-[18px] font-[Lexend] font-light line-clamp-6">
+              We also offer exclusive content and interviews with actors and directors, giving you an inside look at the making of some of your favorite films. Whether you're a casual movie-goer or a die-hard cinephile, our website has something for everyone.
+            </p>
+          </div>
+        
+          <Image
+            width={250}
+            height={250}
+            alt=""
+            src="/3D glasses-amico.svg"
+            className="object-center object-cover w-64 h-64 lg:hidden"
+          />
+
+          <div className="p-3 bg-white/5 rounded-lg max-w-lg mt-[12px]">
+            <p className="text-white text-xs leading-[18px] font-[Lexend] font-light line-clamp-6">
+              In addition to our features and content, we offer targeted advertising opportunities for businesses looking to reach our highly engaged audience. Our ad options include display ads, sponsored content, and native advertising, all of which can be customized to fit your brand's unique needs.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
 
     </div>
   )
