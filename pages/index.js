@@ -24,6 +24,7 @@ import MovieCard_6 from "@/components/MovieCard_6"
 import SeriesCard_2 from "@/components/SeriesCard_2"
 import animations from "@/lib/db/animations"
 import MovieCard_7 from "@/components/MovieCard_7"
+import FeatureCard from "@/components/FeatureCard"
 
 export default function HomePage() {
 
@@ -532,6 +533,45 @@ export default function HomePage() {
           items={animations}
         />
       </div>
+
+
+      <div className="w-full mt-[100px] flex items-center gap-x-1.5 justify-center">
+        <Image
+          width={60}
+          height={60}
+          alt=""
+          src="/pop-corn.svg"
+          className="object-center object-cover"
+        />
+        
+        <p className="text-xl text-white font-bold font-[Raleway] leading-none">Best Features</p>
+      </div>
+
+      <p className="text-white/80 text-sm px-8 text-center max-w-prose font-light font-[Lexend] mx-auto mt-[30px]">
+        Experience the excitement of cinema from the comfort of your own screen, with the best features all in one place!
+      </p>
+
+      <div className="mt-[60px] flex items-stretch gap-x-14 justify-center">
+        <FeatureCard
+          title="Official Movies"
+          desc="Experience the legitimacy, quality, and magic of Official Movies"
+          img="/medal-star.svg"
+        />
+
+        <FeatureCard
+          title="Best Choose"
+          desc="Find Your Perfect Match with Our Varied Movie Selection"
+          img="/magicpen.svg"
+        />
+
+        <FeatureCard
+          title="Greatest Archive"
+          desc="Unlock a World of Cinematic Treasures with Our Great Movie Archive"
+          img="/direct.svg"
+        />
+
+      </div>
+
 
     </div>
   )
