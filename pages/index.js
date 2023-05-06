@@ -552,7 +552,7 @@ export default function HomePage() {
         Experience the excitement of cinema from the comfort of your own screen, with the best features all in one place!
       </p>
 
-      <div className="mt-[60px] flex items-stretch gap-x-14 justify-center">
+      <div className="mt-[60px] flex max-md:flex-col items-stretch gap-14 max-md:items-center justify-center px-10">
         <FeatureCard
           title="Official Movies"
           desc="Experience the legitimacy, quality, and magic of Official Movies"
@@ -574,7 +574,7 @@ export default function HomePage() {
       </div>
 
 
-      <div className="mt-[100px] grid grid-cols-3 w-11/12 mx-auto gap-x-20 max-w-6xl">
+      <div className="mt-[100px] grid grid-cols-1 md:grid-cols-3 w-10/12 sm:w-8/12 md:w-11/12 mx-auto gap-20 max-w-6xl">
 
         <Testimotional
           username="Skylar Dias"
