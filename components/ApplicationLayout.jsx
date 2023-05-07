@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import NavBar from "./NavBar";
 
 export default function ApplicationLayout({children}) {
@@ -7,6 +8,10 @@ export default function ApplicationLayout({children}) {
             <NavBar />
             
             {children}
+
+            <div className="mt-[60px] w-full">
+                <Footer />
+            </div>
 
         </div>
     )

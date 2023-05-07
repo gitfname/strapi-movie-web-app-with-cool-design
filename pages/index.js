@@ -27,7 +27,6 @@ import MovieCard_7 from "@/components/MovieCard_7"
 import FeatureCard from "@/components/FeatureCard"
 import Testimotional from "@/components/TestimotionalCard"
 import TestiMotionals from "@/lib/db/TestiMotionals"
-import Footer from "@/components/Footer"
 
 export default function HomePage() {
 
@@ -716,11 +715,6 @@ export default function HomePage() {
           </div>
 
       </div>
-
-      <div className="mt-[60px] w-full">
-        <Footer />
-      </div>
-
 
     </div>
   )
