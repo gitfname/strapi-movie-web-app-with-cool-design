@@ -148,12 +148,19 @@ export default function HorizontalScrollableSection({
 
                 <Swiper
                     modules={[FreeMode]}
-                    freeMode
+                    freeMode={{
+                        momentumRatio: 2,
+                        momentumVelocityRatio: 2
+                    }}
                     onSwiper={handleOnSwiper}
                     onSlideChange={handleOnSlideChange}
                     spaceBetween={(spaceBetween - 48)}
                     slidesPerView={slidesPerView}
-                    threshold={3}
+                    threshold={0}
+
+                    touchStartPreventDefault={false}
+                    simulateTouch={true}
+
                     breakpoints={{
                         640: {
                             slidesPerView: slidesPerView_sm
@@ -193,7 +200,7 @@ export default function HorizontalScrollableSection({
                                         height:(typeof showSeeMoreH==="string"?showSeeMoreH:showSeeMoreH+"px"),
                                         width:(typeof showSeeMoreW==="string"?showSeeMoreW:showSeeMoreW+"px")
                                     }}
-                                    className={`border w-max m-0 p-0 flex items-center justify-center`}
+                                    className={`w-max m-0 p-0 flex items-center justify-center`}
                                 >
                                     <div className="flex items-center gap-x-1.5 p-2 rounded-lg hover:bg-white/[8%] transition-colors duration-300 cursor-pointer">
                                         <p className="text-white text-sm font-light leading-none font-[Lexend]">see more</p>

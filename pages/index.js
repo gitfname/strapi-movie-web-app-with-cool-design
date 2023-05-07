@@ -438,7 +438,7 @@ export default function HomePage() {
           showSeeMore={false}
           slideW={400}
           showPrevNextButtons={false}
-          slidesPerView={1.5}
+          slidesPerView={1.2}
           slidesPerView_sm={2}
           slidesPerView_md={3}
           slidesPerView_lg={4}
