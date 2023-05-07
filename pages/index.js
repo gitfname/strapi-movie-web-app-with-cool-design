@@ -26,6 +26,7 @@ import animations from "@/lib/db/animations"
 import MovieCard_7 from "@/components/MovieCard_7"
 import FeatureCard from "@/components/FeatureCard"
 import Testimotional from "@/components/TestimotionalCard"
+import TestiMotionals from "@/lib/db/TestiMotionals"
 
 export default function HomePage() {
 
@@ -435,12 +436,13 @@ export default function HomePage() {
         <HorizontalScrollableSection
           title="New Movies"
           showSeeMore={false}
+          slideW={400}
           showPrevNextButtons={false}
-          slidesPerView={1}
-          slidesPerView_sm={2}
-          slidesPerView_md={3}
-          slidesPerView_lg={3}
-          slidesPerView_xl={5}
+          slidesPerView="auto"
+          slidesPerView_sm="auto"
+          slidesPerView_md="auto"
+          slidesPerView_lg="auto"
+          slidesPerView_xl="auto"
           spaceBetween={25}
           renderSlideTemplate={item => <MovieCard_1 {...item} />}
           items={newMovies}
@@ -473,11 +475,12 @@ export default function HomePage() {
           slideH={210}
           showSeeMore={true}
           showPrevNextButtons={false}
-          slidesPerView={1}
-          slidesPerView_sm={2}
-          slidesPerView_md={3}
-          slidesPerView_lg={4}
-          slidesPerView_xl={5}
+          slideW={300}
+          slidesPerView="auto"
+          slidesPerView_sm="auto"
+          slidesPerView_md="auto"
+          slidesPerView_lg="auto"
+          slidesPerView_xl="auto"
           spaceBetween={25}
           renderSlideTemplate={item => <MovieCard_5 {...item} />}
           items={topTenMovies}
@@ -485,7 +488,7 @@ export default function HomePage() {
       </div>
 
 
-      {/* Top Ten Movies */}
+      
       <div className="mt-11 px-[25px] lg:px-[50px] grid gap-y-6 grid-cols-1 max-md:grid-rows-[220px_220px] lg:grid-rows-1 md:grid-cols-[1fr_65%] lg:h-[240px] gap-x-9">
         <MovieCard_6
           text_tl="Apr 05, 2023"
@@ -548,7 +551,7 @@ export default function HomePage() {
         <p className="text-xl text-white font-bold font-[Raleway] leading-none">Best Features</p>
       </div>
 
-      <p className="text-white/80 text-sm px-8 text-center max-w-prose font-light font-[Lexend] mx-auto mt-[30px]">
+      <p className="text-white/80 text-sm xl:text-base px-8 text-center max-w-prose font-light font-[Lexend] mx-auto mt-[30px]">
         Experience the excitement of cinema from the comfort of your own screen, with the best features all in one place!
       </p>
 
@@ -574,9 +577,25 @@ export default function HomePage() {
       </div>
 
 
-      <div className="mt-[100px] grid grid-cols-1 md:grid-cols-3 w-10/12 sm:w-8/12 md:w-11/12 mx-auto gap-20 max-w-6xl">
+      {/* TestiMotionals */}
+      {/* <div className="mt-[100px] grid grid-cols-1 md:grid-cols-3 w-10/12 sm:w-8/12 md:w-11/12 mx-auto gap-20 max-w-6xl"> */}
+      <div className="mt-[100px] w-full px-[185px] max-w-6xl mx-auto">
 
-        <Testimotional
+        <HorizontalScrollableSection
+          title=""
+          showSeeMore={false}
+          showPrevNextButtons={true}
+          slidesPerView={1}
+          slidesPerView_sm={2}
+          slidesPerView_md={3}
+          slidesPerView_lg={3}
+          slidesPerView_xl={3}
+          spaceBetween={60}
+          renderSlideTemplate={item => <Testimotional {...item} />}
+          items={TestiMotionals}
+        />
+
+        {/* <Testimotional
           username="Skylar Dias"
           tl_text="Avatar"
           text="We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite."
@@ -598,11 +617,11 @@ export default function HomePage() {
           text="When it is doing so, it dances bizarrely. This Pokémon’s black pearls are valuable as works of art. Nidoking’s thick tail packs enormo usly destructive power egac Metrics Producer Legacy Metrics Producer"
           img="/movie-images/img13.jpg"
           score="8 / 10"
-        />
+        /> */}
 
       </div>
 
-      <p className="text-lg text-white font-bold font-[Raleway] text-center tracking-wide mt-16">
+      <p className="text-xl text-white font-bold font-[Raleway] text-center tracking-wide mt-16">
         About US
       </p>
 
@@ -611,7 +630,7 @@ export default function HomePage() {
         <div className="max-lg:flex flex-col items-center justify-center">
 
           <div className="p-3 bg-white/5 rounded-lg max-w-lg">
-            <p className="text-white text-xs leading-[18px] font-[Lexend] font-light line-clamp-6">
+            <p className="text-white text-xs lg:text-sm leading-[18px] font-[Lexend] font-light line-clamp-6">
               Welcome to our movie website, where you'll find everything you need to know about the latest movies and upcoming releases. We offer an extensive selection of trailers, reviews, and behind-the-scenes content that will keep you informed and entertained.
             </p>
           </div>
@@ -627,7 +646,7 @@ export default function HomePage() {
           </div>
 
           <div className="p-3 bg-white/5 rounded-lg max-w-xl lg:mt-[12px] max-lg:-translate-y-6">
-            <p className="text-white text-xs leading-[18px] font-[Lexend] font-light line-clamp-6">              
+            <p className="text-white text-xs lg:text-sm leading-[18px] font-[Lexend] font-light line-clamp-6">              
               Our website is designed with the user in mind, providing easy navigation and a clean, modern design. You can browse by genre or search for specific titles using our intuitive search function.
               Once you've found the movie you're interested in, you can read reviews from other users, watch trailers, and get all the information you need to make an informed decision about whether to see it.
             </p>
@@ -661,7 +680,7 @@ export default function HomePage() {
         <div className="flex flex-col items-end max-lg:items-center">
 
           <div className="p-3 bg-white/5 rounded-lg max-w-lg">
-            <p className="text-white text-xs leading-[18px] font-[Lexend] font-light line-clamp-6">
+            <p className="text-white text-xs lg:text-sm leading-[18px] font-[Lexend] font-light line-clamp-6">
               We also offer exclusive content and interviews with actors and directors, giving you an inside look at the making of some of your favorite films. Whether you're a casual movie-goer or a die-hard cinephile, our website has something for everyone.
             </p>
           </div>
@@ -675,7 +694,7 @@ export default function HomePage() {
           />
 
           <div className="p-3 bg-white/5 rounded-lg max-w-lg mt-[12px]">
-            <p className="text-white text-xs leading-[18px] font-[Lexend] font-light line-clamp-6">
+            <p className="text-white text-xs lg:text-sm leading-[18px] font-[Lexend] font-light line-clamp-6">
               In addition to our features and content, we offer targeted advertising opportunities for businesses looking to reach our highly engaged audience. Our ad options include display ads, sponsored content, and native advertising, all of which can be customized to fit your brand's unique needs.
             </p>
           </div>

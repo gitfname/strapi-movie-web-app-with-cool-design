@@ -9,11 +9,11 @@ export default function FeatureCard({title, desc, img}) {
                 height={40}
                 alt=""
                 src={img}
-                className="object-center object-cover w-8 h-8"
+                className="object-center object-cover w-[30px] h-[30px] opacity-90"
             />
             <div>
-                <p className="text-base text-white font-medium font-[Raleway]">{title}</p>
-                <p className="text-white/70 text-xs font-[Lexend] font-light tracking-wide mt-1">
+                <p className="text-lg text-white font-bold font-[Raleway]">{title}</p>
+                <p className="text-white/70 text-xs xl:text-sm font-[Lexend] font-light tracking-wide mt-1">
                     {desc}
                 </p> 
             </div>

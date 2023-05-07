@@ -11,7 +11,8 @@ import { useMediaQuery } from "@chakra-ui/react"
 export default function HorizontalScrollableSection({
     items=[], title, showSeeMore=false, containerClass, buttonsPlace="tr",
     slideW="full", slideH="full", spaceBetween=40, slidesPerView=1, slidesPerView_sm=null,
-    slidesPerView_md=null, slidesPerView_lg=null, slidesPerView_xl=null, renderSlideTemplate, showPrevNextButtons=true
+    slidesPerView_md=null, slidesPerView_lg=null, slidesPerView_xl=null, renderSlideTemplate, showPrevNextButtons=true,
+    showSeeMoreW="100%", showSeeMoreH="100%"
 }) {
 
     const prevBtnId = useId()
@@ -120,7 +121,12 @@ export default function HorizontalScrollableSection({
             >
                 {
                     items.map(item => (
-                        <SwiperSlide key={item.id} className="max-lg:px-6">
+                        <SwiperSlide
+                        style={{
+                            width:(typeof slideW==="string"?slideW:slideW+"px"),
+                            height:(typeof slideH==="string"?slideH:slideH+"px")
+                        }}
+                        key={item.id} className="max-lg:px-6">
                             {
                                 renderSlideTemplate(item)
                             }
@@ -132,8 +138,8 @@ export default function HorizontalScrollableSection({
                         <SwiperSlide>
                             <div
                                 style={{
-                                    height:(typeof slideH==="string"?slideH:slideH+"px"),
-                                    width:(typeof slideW==="string"?slideW:slideW+"px")
+                                    height:(typeof showSeeMoreH==="string"?showSeeMoreH:showSeeMoreH+"px"),
+                                    width:(typeof showSeeMoreW==="string"?showSeeMoreW:showSeeMoreH+"px")
                                 }}
                                 className={`w-full flex items-center justify-center`}
                             >
