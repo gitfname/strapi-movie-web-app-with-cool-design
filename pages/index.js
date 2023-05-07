@@ -685,8 +685,39 @@ export default function HomePage() {
 
       </div>
 
+      <div className="w-full max-lg:w-max max-lg:mx-auto mt-12 px-[25px] lg:px-[50px] grid grid-cols-2 lg:flex items-center justify-evenly">
 
-      <div className="mt-[79px] w-full">
+        <Image
+          width={250}
+          height={250}
+          alt=""
+          src="/cinema.svg"
+          className="object-center object-cover w-24 h-24 lg:w-32 lg:h-32"
+        />
+
+          <div className="p-3 bg-white/5 rounded-lg max-w-lg max-lg:hidden">
+            <p className="text-white text-xs lg:text-sm leading-[18px] font-[Lexend] font-light line-clamp-6">
+              Thank you for choosing our movie website as your go-to source for all things cinema. We're committed to providing the best possible experience for our users, and we hope you enjoy exploring our site!
+            </p>
+          </div>
+
+        <Image
+          width={250}
+          height={250}
+          alt=""
+          src="/movie.svg"
+          className="object-center object-cover w-24 h-24 lg:w-36 lg:h-36 max-lg:ml-auto"
+        />
+
+          <div className="p-3 bg-white/5 rounded-lg max-w-lg lg:hidden col-span-2 mt-4">
+            <p className="text-white text-xs lg:text-sm leading-[18px] font-[Lexend] font-light line-clamp-6">
+              Thank you for choosing our movie website as your go-to source for all things cinema. We're committed to providing the best possible experience for our users, and we hope you enjoy exploring our site!
+            </p>
+          </div>
+
+      </div>
+
+      <div className="mt-[60px] w-full">
         <Footer />
       </div>
 
