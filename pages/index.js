@@ -438,11 +438,11 @@ export default function HomePage() {
           showSeeMore={false}
           slideW={400}
           showPrevNextButtons={false}
-          slidesPerView="auto"
-          slidesPerView_sm="auto"
-          slidesPerView_md="auto"
-          slidesPerView_lg="auto"
-          slidesPerView_xl="auto"
+          slidesPerView={1.5}
+          slidesPerView_sm={2}
+          slidesPerView_md={3}
+          slidesPerView_lg={4}
+          slidesPerView_xl={5}
           spaceBetween={25}
           renderSlideTemplate={item => <MovieCard_1 {...item} />}
           items={newMovies}
@@ -456,7 +456,7 @@ export default function HomePage() {
           title="Tv Series"
           showSeeMore={false}
           showPrevNextButtons={true}
-          slidesPerView={2}
+          slidesPerView={1.4}
           slidesPerView_sm={3}
           slidesPerView_md={4}
           slidesPerView_lg={5}
@@ -472,21 +472,22 @@ export default function HomePage() {
       <div className="w-full lg:px-[50px] mt-[34px]">
         <HorizontalScrollableSection
           title="Top Ten Movies"
-          slideH={210}
+          slideW={200}
+          slideH={220}
+          showSeeMoreW={150}
+          showSeeMoreH={210}
           showSeeMore={true}
           showPrevNextButtons={false}
-          slideW={300}
-          slidesPerView="auto"
-          slidesPerView_sm="auto"
-          slidesPerView_md="auto"
-          slidesPerView_lg="auto"
-          slidesPerView_xl="auto"
+          slidesPerView={1.2}
+          slidesPerView_sm={2}
+          slidesPerView_md={3}
+          slidesPerView_lg={4}
+          slidesPerView_xl={5}
           spaceBetween={25}
           renderSlideTemplate={item => <MovieCard_5 {...item} />}
           items={topTenMovies}
         />
       </div>
-
 
       
       <div className="mt-11 px-[25px] lg:px-[50px] grid gap-y-6 grid-cols-1 max-md:grid-rows-[220px_220px] lg:grid-rows-1 md:grid-cols-[1fr_65%] lg:h-[240px] gap-x-9">
@@ -524,10 +525,11 @@ export default function HomePage() {
       <div className="w-full lg:px-[50px] mt-[34px]">
         <HorizontalScrollableSection
           title="Animations"
-          slideH={210}
+          slideH="100%"
+          slideW={230}
           showSeeMore={false}
           showPrevNextButtons={true}
-          slidesPerView={2}
+          slidesPerView={1.3}
           slidesPerView_sm={2}
           slidesPerView_md={3}
           slidesPerView_lg={5}
@@ -555,6 +557,8 @@ export default function HomePage() {
         Experience the excitement of cinema from the comfort of your own screen, with the best features all in one place!
       </p>
 
+
+      {/* Features Section */}
       <div className="mt-[60px] flex max-md:flex-col items-stretch gap-14 max-md:items-center justify-center px-10">
         <FeatureCard
           title="Official Movies"
@@ -579,10 +583,11 @@ export default function HomePage() {
 
       {/* TestiMotionals */}
       {/* <div className="mt-[100px] grid grid-cols-1 md:grid-cols-3 w-10/12 sm:w-8/12 md:w-11/12 mx-auto gap-20 max-w-6xl"> */}
-      <div className="mt-[100px] w-full px-[185px] max-w-6xl mx-auto">
+      <div className="mt-[100px] w-full px-2 lg:px-[160px] max-w-6xl mx-auto">
 
         <HorizontalScrollableSection
           title=""
+          buttonsPlace="lr"
           showSeeMore={false}
           showPrevNextButtons={true}
           slidesPerView={1}
