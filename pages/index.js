@@ -27,6 +27,7 @@ import MovieCard_7 from "@/components/MovieCard_7"
 import FeatureCard from "@/components/FeatureCard"
 import Testimotional from "@/components/TestimotionalCard"
 import TestiMotionals from "@/lib/db/TestiMotionals"
+import Footer from "@/components/Footer"
 
 export default function HomePage() {
 
@@ -50,7 +51,7 @@ export default function HomePage() {
 
 
   return (
-    <div className="pb-28">
+    <div>
 
       
       {/* hero section */}
@@ -600,30 +601,6 @@ export default function HomePage() {
           items={TestiMotionals}
         />
 
-        {/* <Testimotional
-          username="Skylar Dias"
-          tl_text="Avatar"
-          text="We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite."
-          img="/movie-images/img10.jpg"
-          score="7 / 10"
-        />
-
-        <Testimotional
-          username="Alex Stanton"
-          tl_text="Tetris"
-          text="We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite."
-          img="/movie-images/img11.jpg"
-          score="8 / 10"
-        />
-
-        <Testimotional
-          username="Ervin Howell"
-          tl_text="65"
-          text="When it is doing so, it dances bizarrely. This Pokémon’s black pearls are valuable as works of art. Nidoking’s thick tail packs enormo usly destructive power egac Metrics Producer Legacy Metrics Producer"
-          img="/movie-images/img13.jpg"
-          score="8 / 10"
-        /> */}
-
       </div>
 
       <p className="text-xl text-white font-bold font-[Raleway] text-center tracking-wide mt-16">
@@ -706,6 +683,11 @@ export default function HomePage() {
 
         </div>
 
+      </div>
+
+
+      <div className="mt-[79px] w-full">
+        <Footer />
       </div>
 
 
