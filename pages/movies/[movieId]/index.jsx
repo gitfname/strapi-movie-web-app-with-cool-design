@@ -5,7 +5,8 @@ import Imdb_1 from "@/components/Imdb_1"
 import { AiOutlineHeart, AiOutlineClockCircle } from "react-icons/ai"
 import { BsBookmarkPlus } from "react-icons/bs"
 import { MdOutlineCalendarMonth } from "react-icons/md"
-
+import SingleMovieSeriesImages from "@/components/SingleMovieSeriesImages"
+import CommentCard_1 from "@/components/CommentCard_1"
 
 function MovieCard() {
     return (
@@ -17,12 +18,13 @@ function MovieCard() {
 
 
 export default function SignleMoviePage() {
+
     return (
         <div>
-            <div className="w-full mt-8 px-[25px] lg:px-[50px] grid grid-cols-[310px_1fr] gap-x-16">
+            <div className="w-full mt-8 px-[25px] grid grid-cols-[30%_70%]">
 
                 {/* left side */}
-                <div className="">
+                <div className="pr-7">
 
                     <div className="w-full h-96 bg-red-400"></div>
 
@@ -90,7 +92,7 @@ export default function SignleMoviePage() {
 
 
                 {/* right side */}
-                <div className="border">
+                <div className="pl-7">
 
                     {/* movie - series title */}
                     <div className="flex items-center justify-between pr-12">
@@ -118,7 +120,7 @@ export default function SignleMoviePage() {
                     </div>
 
                     {/* duration */}
-                    <div className="w-full max-w-xs flex items-center justify-between mt-5">
+                    <div className="w-full max-w-[280px] flex items-center justify-between mt-5">
 
                         <div className="flex items-center gap-x-1">
                             <AiOutlineClockCircle className="w-4 h-4 fill-red-500" />
@@ -130,6 +132,67 @@ export default function SignleMoviePage() {
                             <p className="text-white text-xs font-light tracking-wide font-[Lexend] leading-none">2023</p>
                         </div>
 
+                    </div>
+
+                    {/* images */}
+                    <div className="mt-14 w-full">
+
+                        <HorizontalScrollableSection
+                             title=""
+                             showSeeMore={false}
+                             showPrevNextButtons={true}
+                             slideW={100}
+                             slideH={150}
+                             spaceBetween={15}
+                             slidesPerView={1.3}
+                             slidesPerView_sm={2}
+                             slidesPerView_md={2}
+                             slidesPerView_lg={2}
+                             slidesPerView_xl={2}
+                             renderSlideTemplate={item => <SingleMovieSeriesImages />}
+                             items={[1,2,4,5,6,7]}
+                        />
+
+                    </div>
+
+                    {/* summary */}
+                    <p className="text-white text-sm font-semibold font-[Raleway] mt-8">Summary :</p>
+                    <p className="text-white text-sm font-normal font-[Lexend] mt-2.5">
+                        Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.
+                    </p>
+
+
+                    {/* comments */}
+
+                    <div className="w-full border-b border-b-white/20 mt-12"></div>
+
+                    <div className="mt-12 space-y-[50px]">
+                        <CommentCard_1
+                            date="4 Apr 2023"
+                            username="Meredith Gusikowski"
+                            content="You can hear tales told all over the world about how Gengar will pay a visit to children who are naughty. When hunting, Linoone will make a beeline straight for the prey at a full run."
+                            like={1}
+                            id={0}
+                            img="/movie-images/thumbnails/img1.jpg"
+                        />
+                        <CommentCard_1
+                            date="4 Apr 2023"
+                            username="Meredith Gusikowski"
+                            content="You can hear tales told all over the world about how Gengar will pay a visit to children who are naughty. When hunting, Linoone will make a beeline straight for the prey at a full run."
+                            like={0}
+                            id={1}
+                            img="/movie-images/thumbnails/img2.jpg"
+                        />
+                    </div>
+
+                    {/* load more comments button */}
+                    <div className="w-max mx-auto mt-14">
+                        <button
+                            className="text-xs text-white bg-red-500 border-none outline-none focus:border-none
+                            cursor-pointer px-9 py-2 rounded-sm font-[Lexend] font-light transition-transform active:scale-95 duration-200"
+                        >
+                            More
+                        </button>
                     </div>
 
                 </div>
