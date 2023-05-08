@@ -272,9 +272,10 @@ export default function HomePage() {
 
 
       {/* hot movies */}
-      <div className="mt-[34px] lg:px-[50px]">
+      <div className="mt-[34px] px-[25px] lg:px-[50px]">
         <HorizontalScrollableSection
           title="Hot Movies"
+          spaceBetween={20}
           showSeeMore={true}
           showPrevNextButtons={false}
           slideH={195}
@@ -386,7 +387,7 @@ export default function HomePage() {
 
 
       {/* Recommend section */}
-      <div className="mt-[34px] lg:px-[50px]">
+      <div className="mt-[34px] px-[25px] lg:px-[50px]">
         <HorizontalScrollableSection
           title="Recommend"
           showSeeMore={false}
@@ -432,7 +433,7 @@ export default function HomePage() {
 
       
       {/* new movies */}
-      <div className="w-full lg:px-[50px] mt-[34px]">
+      <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
         <HorizontalScrollableSection
           title="New Movies"
           showSeeMore={false}
@@ -451,7 +452,7 @@ export default function HomePage() {
 
 
       {/* Tv Series */}
-      <div className="w-full lg:px-[50px] mt-[34px]">
+      <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
         <HorizontalScrollableSection
           title="Tv Series"
           showSeeMore={false}
@@ -469,7 +470,7 @@ export default function HomePage() {
 
 
       {/* Top Ten Movies */}
-      <div className="w-full lg:px-[50px] mt-[34px]">
+      <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
         <HorizontalScrollableSection
           title="Top Ten Movies"
           slideW={200}
@@ -522,7 +523,7 @@ export default function HomePage() {
 
 
       {/* Animations */}
-      <div className="w-full lg:px-[50px] mt-[34px]">
+      <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
         <HorizontalScrollableSection
           title="Animations"
           slideH="100%"

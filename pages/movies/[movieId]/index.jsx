@@ -1,12 +1,24 @@
-import ActorsActressesList_1 from "@/components/ActorsActressesList_1"
 import ApplicationLayout from "@/components/ApplicationLayout"
-import HorizontalScrollableSection from "@/components/HorizontalScrollableSection"
-import Imdb_1 from "@/components/Imdb_1"
+import dynamic from "next/dynamic"
+
+// import ActorsActressesList_1 from "@/components/ActorsActressesList_1"
+const ActorsActressesList_1 = dynamic(() => import("@/components/ActorsActressesList_1"))
+
+// import HorizontalScrollableSection from "@/components/HorizontalScrollableSection"
+const HorizontalScrollableSection = dynamic(() => import("@/components/HorizontalScrollableSection"))
+
+// import Imdb_1 from "@/components/Imdb_1"
+const Imdb_1 = dynamic(() => import("@/components/Imdb_1"))
+
 import { AiOutlineHeart, AiOutlineClockCircle } from "react-icons/ai"
 import { BsBookmarkPlus } from "react-icons/bs"
 import { MdOutlineCalendarMonth } from "react-icons/md"
-import SingleMovieSeriesImages from "@/components/SingleMovieSeriesImages"
-import CommentCard_1 from "@/components/CommentCard_1"
+
+// import SingleMovieSeriesImages from "@/components/SingleMovieSeriesImages"
+const SingleMovieSeriesImages = dynamic(() => import("@/components/SingleMovieSeriesImages"))
+
+// import CommentCard_1 from "@/components/CommentCard_1"
+const CommentCard_1 = dynamic(() => import("@/components/CommentCard_1"))
 import Image from "next/image"
 
 function MovieCard({img}) {
@@ -26,10 +38,10 @@ export default function SignleMoviePage() {
 
     return (
         <div>
-            <div className="w-full mt-8 px-[25px] grid grid-cols-[30%_70%] max-w-7xl mx-auto">
+            <div className="w-full mt-8 lg:px-[25px] grid grid-cols-1 lg:grid-cols-[30%_70%] max-w-7xl mx-auto">
 
                 {/* left side */}
-                <div className="pr-7">
+                <div className="lg:pr-7">
 
                     <Image
                         width={720}
@@ -39,7 +51,7 @@ export default function SignleMoviePage() {
                         className="w-full h-96 object-center object-cover"
                     />
 
-                    <div className="flex items-center justify-between mt-8">
+                    <div className="flex items-center justify-between mt-8 max-lg:px-[25px] max-lg:hidden">
                         <p className="text-sm text-white font-normal font-[Raleway] tracking-wide">
                             Director : <span className="text-white text-sm font-normal font-[Lexend] tracking-wide">director name</span>
                         </p>
@@ -48,7 +60,7 @@ export default function SignleMoviePage() {
                         </div>
                     </div>
 
-                    <div className="w-full mt-8">
+                    <div className="w-full mt-8 max-lg:hidden">
 
                         <p className="text-white text-xs font-semibold font-[Lexend] mb-3">Actors & Actresses</p>
                         
@@ -82,7 +94,7 @@ export default function SignleMoviePage() {
                         />
                     </div>
 
-                    <div className="w-full mt-8">
+                    <div className="w-full mt-8 max-lg:hidden">
                         <p className="text-white text-xs font-semibold font-[Lexend] mb-3">More Like This</p>
 
                         <HorizontalScrollableSection
@@ -116,10 +128,10 @@ export default function SignleMoviePage() {
 
 
                 {/* right side */}
-                <div className="pl-7">
+                <div className="lg:pl-7 max-lg:px-[25px] max-lg:mt-3">
 
                     {/* movie - series title */}
-                    <div className="flex items-center justify-between pr-12">
+                    <div className="flex items-center justify-between lg:pr-12">
 
                         <p className="capitalize text-white text-xl font-bold font-[Raleway] tracking-wide">avatar: the of water</p>
 
@@ -144,7 +156,7 @@ export default function SignleMoviePage() {
                     </div>
 
                     {/* duration */}
-                    <div className="w-full max-w-[280px] flex items-center justify-between mt-5">
+                    <div className="w-max lg:w-full lg:max-w-[280px] gap-x-5 flex items-center justify-between mt-5">
 
                         <div className="flex items-center gap-x-1">
                             <AiOutlineClockCircle className="w-4 h-4 fill-red-500" />
@@ -158,6 +170,53 @@ export default function SignleMoviePage() {
 
                     </div>
 
+
+
+                    <div className="mt-8 lg:hidden">
+                        <div>
+                            <Imdb_1 score="7 / 10" />
+                        </div>
+                        <p className="text-sm text-white font-normal font-[Raleway] tracking-wide mt-3">
+                            Director : <span className="text-white text-sm font-normal font-[Lexend] tracking-wide">director name</span>
+                        </p>
+                    </div>
+
+                    {/* Actors & Actresses mobile - tablet */}
+                    <div className="w-full mt-8 lg:hidden">
+
+                        <p className="text-white text-xs font-semibold font-[Lexend] mb-3">Actors & Actresses</p>
+
+                        <ActorsActressesList_1
+                            items={[
+                                {
+                                    name: "Sam Worthington",
+                                    img: "/movie-images/img20.jpg"
+                                },
+                                {
+                                    name: "Cliff Curtis",
+                                    img: "/movie-images/img21.jpg"
+                                },
+                                {
+                                    name: "Zoe Saldaña",
+                                    img: "/movie-images/img22.jpeg"
+                                },
+                                {
+                                    name: "Stephen Lang",
+                                    img: "/movie-images/img23.jpg"
+                                },
+                                {
+                                    name: "Kate Winslet",
+                                    img: "/movie-images/img24.jpg"
+                                },
+                                {
+                                    name: "CCH Pounder",
+                                    img: "/movie-images/img25.jpg"
+                                }
+                            ]}
+                        />
+                    </div>
+
+
                     {/* images */}
                     <div className="mt-11 w-full">
 
@@ -167,10 +226,10 @@ export default function SignleMoviePage() {
                              showPrevNextButtons={true}
                              slideW={100}
                              slideH={150}
-                             spaceBetween={15}
+                             spaceBetween={25}
                              slidesPerView={1.3}
                              slidesPerView_sm={2}
-                             slidesPerView_md={2}
+                             slidesPerView_md={3}
                              slidesPerView_lg={2}
                              slidesPerView_xl={2}
                              renderSlideTemplate={item => <SingleMovieSeriesImages {...item} />}

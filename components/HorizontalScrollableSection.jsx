@@ -14,7 +14,7 @@ export default function HorizontalScrollableSection({
     items=[], title, showSeeMore=false, containerClass, buttonsPlace="tr",
     slideW="full", slideH="full", spaceBetween=40, slidesPerView=1, slidesPerView_sm=null,
     slidesPerView_md=null, slidesPerView_lg=null, slidesPerView_xl=null, renderSlideTemplate, showPrevNextButtons=true,
-    showSeeMoreW="100%", showSeeMoreH="100%"
+    showSeeMoreW="100%", showSeeMoreH="100%", slideClass
 }) {
 
     const prevBtnId = useId()
@@ -126,7 +126,7 @@ export default function HorizontalScrollableSection({
         <div className="w-full">
 
             {/* section title */}
-            <div className="flex items-center justify-between max-lg:px-6">
+            <div className="flex items-center justify-between">
                 <p className="text-base tracking-wide text-white font-[Raleway] font-semibold leading-7">{title}</p>
 
                 {
@@ -154,7 +154,8 @@ export default function HorizontalScrollableSection({
                     }}
                     onSwiper={handleOnSwiper}
                     onSlideChange={handleOnSlideChange}
-                    spaceBetween={(spaceBetween - 48)}
+                    // spaceBetween={(spaceBetween - 48)}
+                    spaceBetween={spaceBetween}
                     slidesPerView={slidesPerView}
                     threshold={0}
 
@@ -169,8 +170,7 @@ export default function HorizontalScrollableSection({
                             slidesPerView: slidesPerView_md
                         },
                         1024: {
-                            slidesPerView: slidesPerView_lg,
-                            spaceBetween: spaceBetween
+                            slidesPerView: slidesPerView_lg
                         },
                         1280: {
                             slidesPerView: slidesPerView_xl
@@ -185,7 +185,7 @@ export default function HorizontalScrollableSection({
                                 width:(typeof slideW==="string"?slideW:slideW+"px"),
                                 height:(typeof slideH==="string"?slideH:slideH+"px")
                             }}
-                            key={item.id} className="max-lg:px-6">
+                            key={item.id} className={slideClass}>
                                 {
                                     renderSlideTemplate(item)
                                 }

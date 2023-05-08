@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { play_svg } from "@/lib/svg";
+import Link from "next/link";
 
 
 function Icon({icon}) {
@@ -42,13 +43,15 @@ export default function MovieCard_2({
         >
 
             <div className="relative w-full h-full">
-                <Image
-                    width={img.width}
-                    height={img.height}
-                    alt=""
-                    src={img.src}
-                    className="object-center object-cover w-full h-full block"
-                />
+                <Link href="/movies/10">
+                    <Image
+                        width={img.width}
+                        height={img.height}
+                        alt=""
+                        src={img.src}
+                        className="object-center object-cover w-full h-full block pointer-events-none"
+                    />
+                </Link>
 
                 <div
                     className={

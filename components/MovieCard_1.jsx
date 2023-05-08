@@ -33,8 +33,8 @@ export default function MovieCard_1({id, title, desc, date, pageLink, img, heigh
                 <div className="flex items-center justify-between w-full">
                     <p className="text-white font-light font-[Lexend] text-xs tracking-wide max-w-[25ch]">{desc}</p>
 
-                    <Link href="/movies/10">
-                        <HiArrowRight className="w-4 h-4 fill-white transition-all duration-300 cursor-pointer hover:fill-red-500 hover:scale-125 active:scale-105" />
+                    <Link href="/movies/10" className="fill-white hover:fill-red-500 hover:scale-125 active:scale-105 transition-all duration-300">
+                        <HiArrowRight className="pointer-events-none w-4 h-4 cursor-pointer fill-inherit" />
                     </Link>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { play_svg } from "@/lib/svg";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { MdKeyboardArrowRight } from "react-icons/md";
 import MovieGenreBadge from "./MovieGenreBadge_1";
+import Link from "next/link";
 
 
 function Icon({icon}) {
@@ -46,69 +47,71 @@ export default function MovieCard_7({
 }) {
 
     return (
-        <div
-            style={{
-                width: width,
-                height: height
-            }}
-            className="overflow-hidden w-full h-full grid grid-cols-1 grid-rows-[1fr_max-content]"
-        >
+        <Link href="/movies/10">
+            <div
+                style={{
+                    width: width,
+                    height: height
+                }}
+                className="overflow-hidden w-full h-full grid grid-cols-1 grid-rows-[1fr_max-content]"
+            >
 
-            <div className="relative w-full h-full group">
+                <div className="relative w-full h-full group">
 
-                <Image
-                    width={img.width}
-                    height={img.height}
-                    alt=""
-                    src={img.src}
-                    className="object-center object-cover w-full h-full block"
-                />
+                    <Image
+                        width={img.width}
+                        height={img.height}
+                        alt=""
+                        src={img.src}
+                        className="object-center object-cover w-full h-full block"
+                    />
 
-                <div
-                    className={
-                        hideDetails
-                        ?
-                            `z-10 absolute top-0 left-0 w-full h-full bg-transparent pointer-events-none opacity-0
-                            group-hover:bg-black/60 group-hover:pointer-events-auto group-hover:opacity-100 transition-all
-                            duration-300 flex flex-col justify-between p-2 gap-y-1`
-                        :
-                            `z-10 absolute top-0 left-0 w-full h-full bg-black/60 transition-all
-                            duration-300 flex flex-col justify-between p-2 gap-y-1`
-                }>
+                    <div
+                        className={
+                            hideDetails
+                            ?
+                                `z-10 absolute top-0 left-0 w-full h-full bg-transparent pointer-events-none opacity-0
+                                group-hover:bg-black/60 group-hover:pointer-events-auto group-hover:opacity-100 transition-all
+                                duration-300 flex flex-col justify-between p-2 gap-y-1`
+                            :
+                                `z-10 absolute top-0 left-0 w-full h-full bg-black/60 transition-all
+                                duration-300 flex flex-col justify-between p-2 gap-y-1`
+                    }>
 
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                        {
-                            genre.map((genre, i) => (
-                                <MovieGenreBadge key={i} text={genre} />
-                            ))
-                        }
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                            {
+                                genre.map((genre, i) => (
+                                    <MovieGenreBadge key={i} text={genre} />
+                                ))
+                            }
+                        </div>
+
+                        <p className="text-white text-xs tracking-wide font-light font-[Lexend] max-w-[35ch] line-clamp-6">
+                            {desc}
+                        </p>
+
                     </div>
 
-                    <p className="text-white text-xs tracking-wide font-light font-[Lexend] max-w-[35ch] line-clamp-6">
-                        {desc}
-                    </p>
-
-                </div>
-
-                <div className="absolute bottom-0 left-0 w-full h-full flex flex-col p-1.5 justify-end movieCard_7DarkLayer pointer-events-none transition-opacity group-hover:opacity-0 duration-300">
-                    <p className="text-center text-xs text-white font-light font-[Lexend] line-clamp-1">{title}</p>
-                    <p className="text-center text-xs text-white/70 font-light font-[Lexend] line-clamp-1">{date.total}</p>
-                </div>
-            </div>
-
-            <div>
-                <div className="p-1 py-2 flex items-center justify-between">
-
-                    <HeartIcon />
-                    <div className="p-0.5 hover:bg-red-500 rounded transition-colors duration-200 cursor-pointer group">
-                        <MdKeyboardArrowRight className="w-4 h-4 fill-red-500 group-hover:fill-[#1E1E1E] transition-colors duration-200" />
+                    <div className="absolute bottom-0 left-0 w-full h-full flex flex-col p-1.5 justify-end movieCard_7DarkLayer pointer-events-none transition-opacity group-hover:opacity-0 duration-300">
+                        <p className="text-center text-xs text-white font-light font-[Lexend] line-clamp-1">{title}</p>
+                        <p className="text-center text-xs text-white/70 font-light font-[Lexend] line-clamp-1">{date.total}</p>
                     </div>
-
                 </div>
+
+                <div>
+                    <div className="p-1 py-2 flex items-center justify-between">
+
+                        <HeartIcon />
+                        <div className="p-0.5 hover:bg-red-500 rounded transition-colors duration-200 cursor-pointer group">
+                            <MdKeyboardArrowRight className="w-4 h-4 fill-red-500 group-hover:fill-[#1E1E1E] transition-colors duration-200" />
+                        </div>
+
+                    </div>
+                </div>
+
+
             </div>
-
-
-        </div>
+        </Link>
     )
 
 }
