@@ -21,6 +21,7 @@
     "framer-motion": "^10.12.6",
     "json2mq": "^0.2.0",
     "next": "13.2.4",
+    "next-pwa": "^5.6.0",
     "primeicons": "^6.0.1",
     "primereact": "^9.2.2",
     "prop-types": "^15.8.1",
