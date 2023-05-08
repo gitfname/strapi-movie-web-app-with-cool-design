@@ -1,6 +1,13 @@
+import Image from "next/image";
 
-export default function SingleMovieSeriesImages() {
+export default function SingleMovieSeriesImages({img}) {
     return (
-        <div className="w-full h-full bg-green-400"></div>
+        <Image
+            width={720}
+            height={480}
+            alt=""
+            src={img}
+            className="object-center object-cover w-full h-full"
+        />
     )
 }

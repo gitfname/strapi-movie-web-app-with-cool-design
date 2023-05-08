@@ -7,12 +7,17 @@ import { BsBookmarkPlus } from "react-icons/bs"
 import { MdOutlineCalendarMonth } from "react-icons/md"
 import SingleMovieSeriesImages from "@/components/SingleMovieSeriesImages"
 import CommentCard_1 from "@/components/CommentCard_1"
+import Image from "next/image"
 
-function MovieCard() {
+function MovieCard({img}) {
     return (
-        <div className="w-full h-full bg-red-300">
-
-        </div>
+        <Image
+            width={300}
+            height={300}
+            alt=""
+            src={img}
+            className="object-center object-cover w-full h-full"
+        />
     )
 }
 
@@ -21,12 +26,18 @@ export default function SignleMoviePage() {
 
     return (
         <div>
-            <div className="w-full mt-8 px-[25px] grid grid-cols-[30%_70%]">
+            <div className="w-full mt-8 px-[25px] grid grid-cols-[30%_70%] max-w-7xl mx-auto">
 
                 {/* left side */}
                 <div className="pr-7">
 
-                    <div className="w-full h-96 bg-red-400"></div>
+                    <Image
+                        width={720}
+                        height={480}
+                        alt=""
+                        src="/movie-images/img1.jpg"
+                        className="w-full h-96 object-center object-cover"
+                    />
 
                     <div className="flex items-center justify-between mt-8">
                         <p className="text-sm text-white font-normal font-[Raleway] tracking-wide">
@@ -44,25 +55,28 @@ export default function SignleMoviePage() {
                         <ActorsActressesList_1
                             items={[
                                 {
-                                    name: "actor-1 "
+                                    name: "Sam Worthington",
+                                    img: "/movie-images/img20.jpg"
                                 },
                                 {
-                                    name: "actor-2"
+                                    name: "Cliff Curtis",
+                                    img: "/movie-images/img21.jpg"
                                 },
                                 {
-                                    name: "actress-1"
+                                    name: "Zoe Saldaña",
+                                    img: "/movie-images/img22.jpeg"
                                 },
                                 {
-                                    name: "actress-2"
+                                    name: "Stephen Lang",
+                                    img: "/movie-images/img23.jpg"
                                 },
                                 {
-                                    name: "actor-3"
+                                    name: "Kate Winslet",
+                                    img: "/movie-images/img24.jpg"
                                 },
                                 {
-                                    name: "actress-3"
-                                },
-                                {
-                                    name: "actor-4"
+                                    name: "CCH Pounder",
+                                    img: "/movie-images/img25.jpg"
                                 }
                             ]}
                         />
@@ -78,13 +92,23 @@ export default function SignleMoviePage() {
                             slideW={100}
                             slideH={150}
                             spaceBetween={15}
-                            slidesPerView={3}
-                            slidesPerView_sm={3}
-                            slidesPerView_md={3}
-                            slidesPerView_lg={3}
-                            slidesPerView_xl={3}
-                            renderSlideTemplate={item => <MovieCard />}
-                            items={[1,2,4,5,6,7]}
+                            slidesPerView={1.4}
+                            slidesPerView_sm={2}
+                            slidesPerView_md={2.2}
+                            slidesPerView_lg={2.2}
+                            slidesPerView_xl={2.2}
+                            renderSlideTemplate={item => <MovieCard {...item} />}
+                            items={[
+                                {
+                                    img: "/movie-images/img31.jpg"
+                                },
+                                {
+                                    img: "/movie-images/img32.jpg"
+                                },
+                                {
+                                    img: "/movie-images/img33.jpg"
+                                },
+                            ]}
                         />
                     </div>
 
@@ -135,7 +159,7 @@ export default function SignleMoviePage() {
                     </div>
 
                     {/* images */}
-                    <div className="mt-14 w-full">
+                    <div className="mt-11 w-full">
 
                         <HorizontalScrollableSection
                              title=""
@@ -149,8 +173,18 @@ export default function SignleMoviePage() {
                              slidesPerView_md={2}
                              slidesPerView_lg={2}
                              slidesPerView_xl={2}
-                             renderSlideTemplate={item => <SingleMovieSeriesImages />}
-                             items={[1,2,4,5,6,7]}
+                             renderSlideTemplate={item => <SingleMovieSeriesImages {...item} />}
+                             items={[
+                                {
+                                    img: "/movie-images/img1.jpg"
+                                },
+                                {
+                                    img: "/movie-images/img2.jpg"
+                                },
+                                {
+                                    img: "/movie-images/img3.jpg"
+                                }
+                             ]}
                         />
 
                     </div>
