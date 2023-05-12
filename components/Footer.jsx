@@ -1,6 +1,20 @@
 
 import { AiOutlineHeart, AiFillTwitterSquare, AiFillFacebook, AiFillInstagram } from "react-icons/ai"
 
+function LinkItem({text, href="/"}) {
+    return (
+        <li className="flex items-center gap-x-1.5 group w-max">
+            <div className="bg-white group-hover:bg-red-500 transition-colors duration-300 w-[5px] h-[5px] rounded-full"></div>
+            <a
+                className="group-hover:text-red-500 transition-colors duration-300 text-white text-sm font-[Lexend] font-light"
+                href={href}
+                >
+                {text}
+            </a>
+        </li>
+    )
+}
+
 export default function Footer() {
     return (
         <footer aria-label="Site Footer" className="bg-[#121212]">
@@ -11,49 +25,16 @@ export default function Footer() {
                     <div>
                         <div className="">
                             <nav aria-label="Footer About Nav" className="">
-                                <a
-                                    className="text-red-500 text-base font-[Raleway] font-bold transition"
-                                    href="/"
+                                <p
+                                    className="text-red-500 text-base font-[Raleway] font-bold"
                                     >
                                     Site Map
-                                </a>
+                                </p>
                                 <ul className="space-y-2 text-sm mt-2 list-none pl-2.5">
-                                    <li className="flex items-center gap-x-1.5">
-                                        <div className="bg-white w-[5px] h-[5px] rounded-full"></div>
-                                        <a
-                                            className="text-white text-sm font-[Lexend] font-light transition"
-                                            href="/"
-                                            >
-                                            Home
-                                        </a>
-                                    </li>
-                                    <li className="flex items-center gap-x-1.5">
-                                        <div className="bg-white w-[5px] h-[5px] rounded-full"></div>
-                                        <a
-                                            className="text-white text-sm font-[Lexend] font-light transition"
-                                            href="/"
-                                            >
-                                            Reviews
-                                        </a>
-                                    </li>
-                                    <li className="flex items-center gap-x-1.5">
-                                        <div className="bg-white w-[5px] h-[5px] rounded-full"></div>
-                                        <a
-                                            className="text-white text-sm font-[Lexend] font-light transition"
-                                            href="/"
-                                            >
-                                            News
-                                        </a>
-                                    </li>
-                                    <li className="flex items-center gap-x-1.5">
-                                        <div className="bg-white w-[5px] h-[5px] rounded-full"></div>
-                                        <a
-                                            className="text-white text-sm font-[Lexend] font-light transition"
-                                            href="/"
-                                            >
-                                            Awards
-                                        </a>
-                                    </li>
+                                    <LinkItem text="Home" />
+                                    <LinkItem text="Reviews" />
+                                    <LinkItem text="News" />
+                                    <LinkItem text="Awards" />
                                 </ul>
                             </nav>
                         </div>
@@ -63,47 +44,15 @@ export default function Footer() {
                         <div className="">
                             <nav aria-label="Footer About Nav" className="">
                                 <p
-                                    className="text-red-500 text-base font-[Raleway] font-bold transition"
+                                    className="text-red-500 text-base font-[Raleway] font-bold"
                                     >
                                     Services
                                 </p>
                                 <ul className="space-y-2 text-sm mt-2 list-none pl-2.5">
-                                    <li className="flex items-center gap-x-1.5">
-                                        <div className="bg-white w-[5px] h-[5px] rounded-full"></div>
-                                        <a
-                                            className="text-white text-sm font-[Lexend] font-light transition"
-                                            href="/"
-                                            >
-                                            Movies
-                                        </a>
-                                    </li>
-                                    <li className="flex items-center gap-x-1.5">
-                                        <div className="bg-white w-[5px] h-[5px] rounded-full"></div>
-                                        <a
-                                            className="text-white text-sm font-[Lexend] font-light transition"
-                                            href="/"
-                                            >
-                                            Tv
-                                        </a>
-                                    </li>
-                                    <li className="flex items-center gap-x-1.5">
-                                        <div className="bg-white w-[5px] h-[5px] rounded-full"></div>
-                                        <a
-                                            className="text-white text-sm font-[Lexend] font-light transition"
-                                            href="/"
-                                            >
-                                            Blogs
-                                        </a>
-                                    </li>
-                                    <li className="flex items-center gap-x-1.5">
-                                        <div className="bg-white w-[5px] h-[5px] rounded-full"></div>
-                                        <a
-                                            className="text-white text-sm font-[Lexend] font-light transition"
-                                            href="/"
-                                            >
-                                            NewsLetter
-                                        </a>
-                                    </li>
+                                    <LinkItem text="Movies" />
+                                    <LinkItem text="Tv" />
+                                    <LinkItem text="Blogs" />
+                                    <LinkItem text="NewsLetter" />
                                 </ul>
                             </nav>
                         </div>
@@ -113,47 +62,15 @@ export default function Footer() {
                         <div className="">
                             <nav aria-label="Footer About Nav" className="">
                                 <p
-                                    className="text-red-500 text-base font-[Raleway] font-bold transition"
+                                    className="text-red-500 text-base font-[Raleway] font-bold"
                                     >
                                     Info
                                 </p>
                                 <ul className="space-y-2 text-sm mt-2 list-none pl-2.5">
-                                    <li className="flex items-center gap-x-1.5">
-                                        <div className="bg-white w-[5px] h-[5px] rounded-full"></div>
-                                        <a
-                                            className="text-white text-sm font-[Lexend] font-light transition"
-                                            href="/"
-                                            >
-                                            Privacy Policy
-                                        </a>
-                                    </li>
-                                    <li className="flex items-center gap-x-1.5">
-                                        <div className="bg-white w-[5px] h-[5px] rounded-full"></div>
-                                        <a
-                                            className="text-white text-sm font-[Lexend] font-light transition"
-                                            href="/"
-                                            >
-                                            Terms of Usage
-                                        </a>
-                                    </li>
-                                    <li className="flex items-center gap-x-1.5">
-                                        <div className="bg-white w-[5px] h-[5px] rounded-full"></div>
-                                        <a
-                                            className="text-white text-sm font-[Lexend] font-light transition"
-                                            href="/"
-                                            >
-                                            Sign Up
-                                        </a>
-                                    </li>
-                                    <li className="flex items-center gap-x-1.5">
-                                        <div className="bg-white w-[5px] h-[5px] rounded-full"></div>
-                                        <a
-                                            className="text-white text-sm font-[Lexend] font-light transition"
-                                            href="/"
-                                            >
-                                            Archive
-                                        </a>
-                                    </li>
+                                    <LinkItem text="Privacy Policy" />
+                                    <LinkItem text="Terms of Usage" />
+                                    <LinkItem text="Sign Up" />
+                                    <LinkItem text="Archive" />
                                 </ul>
                             </nav>
                         </div>
@@ -166,15 +83,15 @@ export default function Footer() {
                                 >
                                 Get In Touch
                             </p>
-                            <div className="flex items-center gap-x-2 mt-3">
-                                <div className="p-0.5 bg-white/10 rounded-lg cursor-pointer">
-                                    <AiFillInstagram className="w-6 h-6 fill-white" />
+                            <div className="flex items-center gap-x-2 mt-3 p-1">
+                                <div tabIndex={0} className="p-0.5 bg-white/10 rounded-lg cursor-pointer border border-transparent focus:rounded-[50%] focus:border-red-500 hover:rounded-[50%] hover:border-red-500 transition-all duration-300 group">
+                                    <AiFillInstagram className="w-6 h-6 fill-white group-focus:fill-red-500 group-focus:scale-95 group-hover:scale-[0.8] transition-transform duration-300" />
                                 </div>
-                                <div className="p-0.5 bg-white/10 rounded-lg cursor-pointer">
-                                    <AiFillFacebook className="rounded-full w-6 h-6 fill-white" />
+                                <div tabIndex={0} className="p-0.5 bg-white/10 rounded-lg cursor-pointer border border-transparent focus:rounded-[50%] focus:border-red-500 hover:rounded-[50%] hover:border-red-500 transition-all duration-300 group">
+                                    <AiFillFacebook className="rounded-full w-6 h-6 fill-white group-focus:fill-red-500 group-focus:scale-95 group-hover:scale-[0.8] transition-transform duration-300" />
                                 </div>
-                                <div className="p-0.5 bg-white/10 rounded-lg cursor-pointer">
-                                    <AiFillTwitterSquare className="rounded-full w-6 h-6 fill-white" />
+                                <div tabIndex={0} className="p-0.5 bg-white/10 rounded-lg cursor-pointer border border-transparent focus:rounded-[50%] focus:border-red-500 hover:rounded-[50%] hover:border-red-500 transition-all duration-300 group">
+                                    <AiFillTwitterSquare className="rounded-full w-6 h-6 fill-white group-focus:fill-red-500 group-focus:scale-95 group-hover:scale-[0.8] transition-transform duration-300" />
                                 </div>
                             </div>
                             <p className="mt-auto text-white/50 text-xs font-[Lexend] font-light tracking-wide">

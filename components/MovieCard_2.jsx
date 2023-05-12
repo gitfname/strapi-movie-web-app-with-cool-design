@@ -42,7 +42,7 @@ export default function MovieCard_2({
             className="overflow-hidden w-full h-full grid grid-cols-1 grid-rows-[84%_max-content]"
         >
 
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full group">
                 <Link href="/movies/10">
                     <Image
                         width={img.width}

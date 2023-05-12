@@ -94,8 +94,8 @@ export default function MovieCard_4({
 
                         <HeartIcon />
                         <p className="text-xs !text-[11px] text-white/70 font-light font-[Lexend] tracking-wide leading-none">{date.year}</p>
-                        <div className="p-0.5 hover:bg-white/10 rounded transition-colors duration-200 cursor-pointer">
-                            <MdKeyboardArrowRight className="w-4 h-4 fill-white" />
+                        <div className="hover:bg-red-500 group rounded transition-colors duration-200 cursor-pointer">
+                            <MdKeyboardArrowRight className="w-5 h-5 fill-red-500 transition-colors duration-300 hover:fill-[#1E1E1E] hover:bg-red-500 rounded" />
                         </div>
 
                     </div>

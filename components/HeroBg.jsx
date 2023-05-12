@@ -6,13 +6,13 @@ const desktop = {
     type: "desktop",
     width: 1280,
     height: 920,
-    src: "/bg-desktop.png"
+    src: "/bg-desktop.avif"
 }
 const phone = {
     type: "phone",
     width: 860,
     height: 784,
-    src: "/bg-phone.png"
+    src: "/bg-phone.avif"
 }
 
 export default function HeroBg() {

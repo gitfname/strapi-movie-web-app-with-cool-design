@@ -10,8 +10,8 @@ const HorizontalScrollableSection = dynamic(() => import("@/components/Horizonta
 // import Imdb_1 from "@/components/Imdb_1"
 const Imdb_1 = dynamic(() => import("@/components/Imdb_1"))
 
-import { AiOutlineHeart, AiOutlineClockCircle } from "react-icons/ai"
-import { BsBookmarkPlus } from "react-icons/bs"
+import { AiOutlineHeart, AiOutlineClockCircle, AiFillHeart } from "react-icons/ai"
+import { BsBookmarkPlus, BsBookmarkPlusFill } from "react-icons/bs"
 import { MdOutlineCalendarMonth } from "react-icons/md"
 
 // import SingleMovieSeriesImages from "@/components/SingleMovieSeriesImages"
@@ -20,6 +20,7 @@ const SingleMovieSeriesImages = dynamic(() => import("@/components/SingleMovieSe
 // import CommentCard_1 from "@/components/CommentCard_1"
 const CommentCard_1 = dynamic(() => import("@/components/CommentCard_1"))
 import Image from "next/image"
+import DynamicIcon from "@/components/DynamicIcon"
 
 function MovieCard({img}) {
     return (
@@ -30,6 +31,14 @@ function MovieCard({img}) {
             src={img}
             className="object-center object-cover w-full h-full"
         />
+    )
+}
+
+function MovieCategoryTag({text}) {
+    return (
+        <p className="border transition-colors duration-300 cursor-default hover:border-red-500 hover:text-red-500 border-red-500/50 p-0.5 px-1 text-red-500/50 rounded tracking-wide text-xs font-light font-[Lexend]">
+            {text}
+        </p>
     )
 }
 
@@ -68,27 +77,33 @@ export default function SignleMoviePage() {
                             items={[
                                 {
                                     name: "Sam Worthington",
-                                    img: "/movie-images/img20.jpg"
+                                    img: "/movie-images/img20.jpg",
+                                    characterImg: "/movie-images/thumbnails/img11.jpg"
                                 },
                                 {
                                     name: "Cliff Curtis",
-                                    img: "/movie-images/img21.jpg"
+                                    img: "/movie-images/img21.jpg",
+                                    characterImg: "/movie-images/thumbnails/img12.jpg"
                                 },
                                 {
                                     name: "Zoe Saldaña",
-                                    img: "/movie-images/img22.jpeg"
+                                    img: "/movie-images/img22.jpeg",
+                                    characterImg: "/movie-images/thumbnails/img13.jpg"
                                 },
                                 {
                                     name: "Stephen Lang",
-                                    img: "/movie-images/img23.jpg"
+                                    img: "/movie-images/img23.jpg",
+                                    characterImg: "/movie-images/thumbnails/img14.jpg"
                                 },
                                 {
                                     name: "Kate Winslet",
-                                    img: "/movie-images/img24.jpg"
+                                    img: "/movie-images/img24.jpg",
+                                    characterImg: "/movie-images/thumbnails/img15.jpg"
                                 },
                                 {
                                     name: "CCH Pounder",
-                                    img: "/movie-images/img25.jpg"
+                                    img: "/movie-images/img25.jpg",
+                                    characterImg: "/movie-images/thumbnails/img16.jpg"
                                 }
                             ]}
                         />
@@ -106,9 +121,9 @@ export default function SignleMoviePage() {
                             spaceBetween={15}
                             slidesPerView={1.4}
                             slidesPerView_sm={2}
-                            slidesPerView_md={2.2}
-                            slidesPerView_lg={2.2}
-                            slidesPerView_xl={2.2}
+                            slidesPerView_md={3}
+                            slidesPerView_lg={3}
+                            slidesPerView_xl={3}
                             renderSlideTemplate={item => <MovieCard {...item} />}
                             items={[
                                 {
@@ -120,6 +135,12 @@ export default function SignleMoviePage() {
                                 {
                                     img: "/movie-images/img33.jpg"
                                 },
+                                {
+                                    img: "/movie-images/img21.jpg"
+                                },
+                                {
+                                    img: "/movie-images/img23.jpg"
+                                }
                             ]}
                         />
                     </div>
@@ -136,23 +157,30 @@ export default function SignleMoviePage() {
                         <p className="capitalize text-white text-xl font-bold font-[Raleway] tracking-wide">avatar: the of water</p>
 
                         <div className="flex items-center gap-x-2">
-                            <AiOutlineHeart className="w-5 h-5 fill-red-500" />
-                            <BsBookmarkPlus className="w-5 h-5 fill-red-500" />
+                            <DynamicIcon
+                                w={20}
+                                h={20}
+                                icon={<AiOutlineHeart className="w-5 h-5 fill-red-500" />}
+                                hoverIcon={<AiFillHeart className="w-5 h-5 fill-red-500" />}
+                            />
+
+                            <DynamicIcon
+                                w={20}
+                                h={20}
+                                icon={<BsBookmarkPlus className="w-5 h-5 fill-red-500" />}
+                                hoverIcon={<BsBookmarkPlusFill className="w-5 h-5 fill-red-500" />}
+                            />
                         </div>
 
                     </div>
 
                     {/* genres */}
                     <div className="mt-3 flex items-center gap-2.5 flex-wrap">
-                        <p className="border border-red-500/50 p-0.5 px-1 text-red-500/50 rounded tracking-wide text-xs font-light font-[Lexend]">
-                            Adventure
-                        </p>
-                        <p className="border border-red-500/50 p-0.5 px-1 text-red-500/50 rounded tracking-wide text-xs font-light font-[Lexend]">
-                            Drama
-                        </p>
-                        <p className="border border-red-500/50 p-0.5 px-1 text-red-500/50 rounded tracking-wide text-xs font-light font-[Lexend]">
-                            Action
-                        </p>
+
+                        <MovieCategoryTag text="Adventure" />
+                        <MovieCategoryTag text="Drama" />
+                        <MovieCategoryTag text="Action" />
+                        
                     </div>
 
                     {/* duration */}
@@ -281,11 +309,47 @@ export default function SignleMoviePage() {
                     {/* load more comments button */}
                     <div className="w-max mx-auto mt-14">
                         <button
-                            className="text-xs text-white bg-red-500 border-none outline-none focus:border-none
-                            cursor-pointer px-9 py-2 rounded-sm font-[Lexend] font-light transition-transform active:scale-95 duration-200"
+                            className="text-xs border border-transparent hover:border-red-500 hover:bg-transparent text-white bg-red-500 outline-none
+                            cursor-pointer px-9 py-2 rounded-sm font-[Lexend] font-light transition-all active:scale-95 duration-300"
                         >
                             More
                         </button>
+                    </div>
+
+                    <div className="w-full mt-8 lg:hidden px-[25px]">
+                        <p className="text-white text-xs font-semibold font-[Lexend] mb-3">More Like This</p>
+
+                        <HorizontalScrollableSection
+                            title=""
+                            showSeeMore={false}
+                            showPrevNextButtons={false}
+                            slideW={100}
+                            slideH={150}
+                            spaceBetween={15}
+                            slidesPerView={3}
+                            slidesPerView_sm={3}
+                            slidesPerView_md={3}
+                            slidesPerView_lg={3}
+                            slidesPerView_xl={3}
+                            renderSlideTemplate={item => <MovieCard {...item} />}
+                            items={[
+                                {
+                                    img: "/movie-images/img31.jpg"
+                                },
+                                {
+                                    img: "/movie-images/img32.jpg"
+                                },
+                                {
+                                    img: "/movie-images/img33.jpg"
+                                },
+                                {
+                                    img: "/movie-images/img21.jpg"
+                                },
+                                {
+                                    img: "/movie-images/img23.jpg"
+                                }
+                            ]}
+                        />
                     </div>
 
                 </div>

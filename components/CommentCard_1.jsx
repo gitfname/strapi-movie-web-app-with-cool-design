@@ -2,12 +2,13 @@ import Image from "next/image"
 import { useCallback, useState } from "react"
 import { BsHandThumbsUp, BsHandThumbsDown, BsHandThumbsUpFill, BsHandThumbsDownFill } from "react-icons/bs"
 
+
 function ThumbUp({like, handleOnclick}) {
   return (
     <div className="relative p-0 m-0 w-5 h-5 sm:w-4 sm:h-4">
         <BsHandThumbsUp className="w-5 h-5 sm:w-4 sm:h-4 fill-red-500 absolute top-0 left-0" />
         <BsHandThumbsUpFill
-          className={`w-5 h-5 sm:w-4 sm:h-4 fill-red-500 transition-opacity absolute top-0 left-auto opacity-0
+          className={`w-5 h-5 hover:opacity-100 sm:w-4 sm:h-4 fill-red-500 transition-opacity absolute top-0 left-auto opacity-0
           z-10 select-none cursor-pointer ${(like===1)&&"!opacity-100"}`}
           onClick={() => handleOnclick("up")}
         />
@@ -20,7 +21,7 @@ function ThumbDown({like, handleOnclick}) {
     <div className="relative p-0 m-0 w-5 h-5 sm:w-4 sm:h-4">
         <BsHandThumbsDown className="w-5 h-5 sm:w-4 sm:h-4 fill-red-500 absolute top-0 left-0" />
         <BsHandThumbsDownFill
-          className={`w-5 h-5 sm:w-4 sm:h-4 fill-red-500 transition-opacity absolute top-0 left-auto opacity-0
+          className={`w-5 h-5 hover:opacity-100 sm:w-4 sm:h-4 fill-red-500 transition-opacity absolute top-0 left-auto opacity-0
           z-10 select-none cursor-pointer ${(like==0)&&"!opacity-100"}`}
           onClick={() => handleOnclick("down")}
         />
@@ -77,11 +78,11 @@ function CommentCard_1({id=0, date="", username="", content="", like=0, img=""})
 
       </div>
 
-      <p className="text-xs font-light text-white font-[Lexend] leading-5 mt-3 sm:pl-[52px]">
+      <p className="text-xs font-light text-white font-[Lexend] leading-5 mt-3 pl-[52px]">
         {content}
       </p>
 
-      <p className="text-xs font-light text-white/60 font-[Lexend] leading-none mt-5 sm:pl-[52px]">Reply...</p>
+      <p className="text-xs font-light text-white/60 font-[Lexend] leading-none mt-5 pl-[52px]">Reply...</p>
     </div>
   )
 }

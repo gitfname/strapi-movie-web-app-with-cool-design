@@ -5,7 +5,7 @@ import "swiper/css"
 import "swiper/css/free-mode"
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
 import Image from "next/image"
-import { useMediaQuery } from "@chakra-ui/react"
+import { BsArrowRightCircle, BsArrowRight, BsArrowLeft } from "react-icons/bs"
 
 
 
@@ -20,26 +20,35 @@ export default function HorizontalScrollableSection({
     const prevBtnId = useId()
     const nextBtnId = useId()
 
-    // const [xs, sm, md, lg, xl] = useMediaQuery([
-    //     "(max-width: 640px)",
-    //     "(min-width: 641px) and (max-width: 768px)",
-    //     "(min-width: 769px) and (max-width: 1024px)",
-    //     "(min-width: 1025px) and (max-width: 1280px)",
-    //     "(min-width: 1281px)",
-    // ])
+    const swiperSlidesPerViewAttrs = {
+        slidesPerView: slidesPerView,
+
+        breakpoints:{
+            320: {
+                slidesPerView: slidesPerView
+            },
+            640: {
+                slidesPerView: slidesPerView_sm,
+            },
+            768: {
+                slidesPerView: slidesPerView_md,
+            },
+            1024: {
+                slidesPerView: slidesPerView_lg,
+            },
+            1280: {
+                slidesPerView: slidesPerView_xl,
+            }
+        }
+    }
+
+    if(slidesPerView === "auto") {
+        delete swiperSlidesPerViewAttrs.breakpoints
+    }
 
     const [additionalPrevButtonClasses, setAdditionalPrevButtonClasses] = useState([])
     const [additionalNextButtonClasses, setAdditionalNextButtonClasses] = useState([])
     const [swiperInstance, setSwiperInstance] = useState(null)
-
-    // const _SlidesPerView = (
-    //     xs ? slidesPerView :
-    //         sm ? slidesPerView_sm :
-    //             md ? slidesPerView_md :
-    //                 lg ? slidesPerView_lg :
-    //                     xl && slidesPerView_xl
-
-    // )
 
     const handleOnPrevClick = () => {
         swiperInstance?.slidePrev&&swiperInstance?.slidePrev()
@@ -89,11 +98,11 @@ export default function HorizontalScrollableSection({
         () => {
             return (<div className="flex items-center gap-x-1">
                 <div onClick={handleOnPrevClick} className="select-none hover:bg-white/[8%] active:scale-95 rounded-lg transition-all duration-200 cursor-pointer p-1.5">
-                    <MdKeyboardArrowLeft id={prevBtnId} className={`transition-colors duration-200 w-4 h-4 fill-white ${additionalPrevButtonClasses.join(" ")}`} />
+                    <BsArrowLeft id={prevBtnId} className={`transition-colors duration-200 w-4 h-4 fill-white ${additionalPrevButtonClasses.join(" ")}`} />
                 </div>
                 
                 <div onClick={handleOnNextCLick} className="select-none hover:bg-white/[8%] active:scale-95 rounded-lg transition-all duration-200 cursor-pointer p-1.5">
-                    <MdKeyboardArrowRight id={nextBtnId} className={`transition-colors duration-200 w-4 h-4 fill-white ${additionalNextButtonClasses.join(" ")}`} />
+                    <BsArrowRight id={nextBtnId} className={`transition-colors duration-200 w-4 h-4 fill-white ${additionalNextButtonClasses.join(" ")}`} />
                 </div>
             </div>)
         },
@@ -104,7 +113,7 @@ export default function HorizontalScrollableSection({
         () => {
             return (
                 <div onClick={handleOnPrevClick} className="select-none hover:bg-white/[8%] active:scale-95 rounded-lg transition-all duration-200 cursor-pointer p-1.5">
-                    <MdKeyboardArrowLeft id={prevBtnId} className={`transition-colors duration-200 w-4 h-4 fill-white ${additionalPrevButtonClasses.join(" ")}`} />
+                    <BsArrowLeft id={prevBtnId} className={`transition-colors duration-200 w-4 h-4 fill-white ${additionalPrevButtonClasses.join(" ")}`} />
                 </div>
             )
         },
@@ -115,7 +124,7 @@ export default function HorizontalScrollableSection({
         () => {
             return (
                 <div onClick={handleOnNextCLick} className="select-none hover:bg-white/[8%] active:scale-95 rounded-lg transition-all duration-200 cursor-pointer p-1.5">
-                    <MdKeyboardArrowRight id={nextBtnId} className={`transition-colors duration-200 w-4 h-4 fill-white ${additionalNextButtonClasses.join(" ")}`} />
+                    <BsArrowRight id={nextBtnId} className={`transition-colors duration-200 w-4 h-4 fill-white ${additionalNextButtonClasses.join(" ")}`} />
                 </div>
             )
         },
@@ -154,36 +163,39 @@ export default function HorizontalScrollableSection({
                     }}
                     onSwiper={handleOnSwiper}
                     onSlideChange={handleOnSlideChange}
-                    // spaceBetween={(spaceBetween - 48)}
                     spaceBetween={spaceBetween}
-                    slidesPerView={slidesPerView}
                     threshold={0}
 
                     touchStartPreventDefault={false}
                     simulateTouch={true}
 
-                    breakpoints={{
-                        640: {
-                            slidesPerView: slidesPerView_sm
-                        },
-                        768: {
-                            slidesPerView: slidesPerView_md
-                        },
-                        1024: {
-                            slidesPerView: slidesPerView_lg
-                        },
-                        1280: {
-                            slidesPerView: slidesPerView_xl
-                        },
-                    }}
+                    {...swiperSlidesPerViewAttrs}
+
+                    // breakpoints={{
+                    //     320: {
+                    //         slidesPerView: slidesPerView
+                    //     },
+                    //     640: {
+                    //         slidesPerView: slidesPerView_sm,
+                    //     },
+                    //     768: {
+                    //         slidesPerView: slidesPerView_md,
+                    //     },
+                    //     1024: {
+                    //         slidesPerView: slidesPerView_lg,
+                    //     },
+                    //     1280: {
+                    //         slidesPerView: slidesPerView_xl,
+                    //     }
+                    // }}
                     className={"mt-1 "+containerClass}
                 >
                     {
                         items.map(item => (
                             <SwiperSlide
                             style={{
-                                width:(typeof slideW==="string"?slideW:slideW+"px"),
-                                height:(typeof slideH==="string"?slideH:slideH+"px")
+                                width: slideW,
+                                height: slideH
                             }}
                             key={item.id} className={slideClass}>
                                 {
@@ -202,14 +214,15 @@ export default function HorizontalScrollableSection({
                                     }}
                                     className={`w-max m-0 p-0 flex items-center justify-center`}
                                 >
-                                    <div className="flex items-center gap-x-1.5 p-2 rounded-lg hover:bg-white/[8%] transition-colors duration-300 cursor-pointer">
-                                        <p className="text-white text-sm font-light leading-none font-[Lexend]">see more</p>
-                                        <Image
+                                    <div className="flex group items-center gap-x-4 p-1 transition-colors duration-300">
+                                        <p className="text-white text-sm font-light leading-none font-[Lexend]">See More</p>
+                                        {/* <Image
                                             width={20}
                                             height={20}
                                             alt=""
                                             src={"/arrowRight.svg"}
-                                        />
+                                        /> */}
+                                        <BsArrowRightCircle className="fill-red-500 w-5 h-5 cursor-pointer active:scale-90 transition-all duration-200 hover:fill-white" />
                                     </div>
                                 </div>
                             </SwiperSlide>

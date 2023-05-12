@@ -27,6 +27,7 @@ import MovieCard_7 from "@/components/MovieCard_7"
 import FeatureCard from "@/components/FeatureCard"
 import Testimotional from "@/components/TestimotionalCard"
 import TestiMotionals from "@/lib/db/TestiMotionals"
+import Banners from "@/components/Banners"
 
 export default function HomePage() {
 
@@ -50,7 +51,7 @@ export default function HomePage() {
 
 
   return (
-    <div>
+    <div className="w-full">
 
       
       {/* hero section */}
@@ -181,7 +182,6 @@ export default function HomePage() {
                 key: 0,
                 text: "Sort by Year",
                 img: "/calendar.svg",
-                observe: true,
                 items: [
                   {
                     text: "2023 - 2022",
@@ -198,7 +198,6 @@ export default function HomePage() {
                 key: 1,
                 text: "Sort by Genre",
                 img: "/more.svg",
-                observe: false,
                 items: [
                   {
                     text: "Action",
@@ -215,7 +214,6 @@ export default function HomePage() {
                 key: 2,
                 text: "Sort by Rating",
                 img: "/star1.svg",
-                observe: false,
                 items: [
                   {
                     text: "10 - 5",
@@ -229,7 +227,6 @@ export default function HomePage() {
                 key: 3,
                 text: "Sort by Vote",
                 img: "/like1.svg",
-                observe: false,
                 items: [
                   {
                     text: "1000",
@@ -272,7 +269,7 @@ export default function HomePage() {
 
 
       {/* hot movies */}
-      <div className="mt-[34px] px-[25px] lg:px-[50px]">
+      <div id="movies" className="mt-[34px] px-[25px] lg:px-[50px]">
         <HorizontalScrollableSection
           title="Hot Movies"
           spaceBetween={20}
@@ -293,7 +290,7 @@ export default function HomePage() {
               img: {
                 width: 500,
                 height: 400,
-                src: "/movie-images/img1.jpg"
+                src: "/movie-images/production/img1.avif"
               },
               width: "100%",
               height: 195,
@@ -312,7 +309,7 @@ export default function HomePage() {
               img: {
                 width: 500,
                 height: 400,
-                src: "/movie-images/img2.jpg"
+                src: "/movie-images/production/img24.avif"
               },
               width: "100%",
               height: 195,
@@ -331,7 +328,7 @@ export default function HomePage() {
               img: {
                 width: 500,
                 height: 400,
-                src: "/movie-images/img3.jpg"
+                src: "/movie-images/production/img25.avif"
               },
               width: "100%",
               height: 195,
@@ -350,7 +347,7 @@ export default function HomePage() {
               img: {
                 width: 500,
                 height: 400,
-                src: "/movie-images/img4.jpg"
+                src: "/movie-images/production/img26.avif"
               },
               width: "100%",
               height: 195,
@@ -369,7 +366,7 @@ export default function HomePage() {
               img: {
                 width: 500,
                 height: 400,
-                src: "/movie-images/img5.jpeg"
+                src: "/movie-images/production/img29.avif"
               },
               width: "100%",
               height: 195,
@@ -433,7 +430,7 @@ export default function HomePage() {
 
       
       {/* new movies */}
-      <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
+      <div id="new-movies" className="w-full px-[25px] lg:px-[50px] mt-[34px]">
         <HorizontalScrollableSection
           title="New Movies"
           showSeeMore={false}
@@ -452,7 +449,7 @@ export default function HomePage() {
 
 
       {/* Tv Series */}
-      <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
+      <div id="series" className="w-full px-[25px] lg:px-[50px] mt-[34px]">
         <HorizontalScrollableSection
           title="Tv Series"
           showSeeMore={false}
@@ -473,17 +470,17 @@ export default function HomePage() {
       <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
         <HorizontalScrollableSection
           title="Top Ten Movies"
-          slideW={200}
-          slideH={220}
+          slideW={300}
+          slideH={200}
           showSeeMoreW={150}
           showSeeMoreH={210}
           showSeeMore={true}
           showPrevNextButtons={false}
-          slidesPerView={1.2}
-          slidesPerView_sm={2}
-          slidesPerView_md={3}
-          slidesPerView_lg={4}
-          slidesPerView_xl={5}
+          slidesPerView="auto"
+          slidesPerView_sm="auto"
+          slidesPerView_md="auto"
+          slidesPerView_lg="auto"
+          slidesPerView_xl="auto"
           spaceBetween={25}
           renderSlideTemplate={item => <MovieCard_5 {...item} />}
           items={topTenMovies}
@@ -491,8 +488,23 @@ export default function HomePage() {
       </div>
 
       
-      <div className="mt-11 px-[25px] lg:px-[50px] grid gap-y-6 grid-cols-1 max-md:grid-rows-[220px_220px] lg:grid-rows-1 md:grid-cols-[1fr_65%] lg:h-[240px] gap-x-9">
-        <MovieCard_6
+      <Banners />
+      {/* <div className="mt-11 px-[25px] lg:px-[50px] grid grid-cols-1 gap-y-7  lg:grid-rows-1 md:grid-cols-[1fr_65%] lg:h-[240px] gap-x-9">
+        <Image
+          width={720}
+          height={720}
+          alt=""
+          src="/banner1_mobile.svg"
+          className="object-center object-cover"
+        />
+        <Image
+          width={720}
+          height={720}
+          alt=""
+          src="/banner2_mobile.svg"
+          className="object-center object-cover"
+        /> */}
+        {/* <MovieCard_6
           text_tl="Apr 05, 2023"
           text_tr="1 hr 32 min"
           text_bl="The Super Mario Bros"
@@ -518,8 +530,8 @@ export default function HomePage() {
             year:"2023"
           }}
           desc="The story of J. Robert Oppenheimer’s role in the development of the atomic bomb during World War II."
-        />
-      </div>
+        /> */}
+      {/* </div> */}
 
 
       {/* Animations */}
@@ -584,19 +596,31 @@ export default function HomePage() {
 
       {/* TestiMotionals */}
       {/* <div className="mt-[100px] grid grid-cols-1 md:grid-cols-3 w-10/12 sm:w-8/12 md:w-11/12 mx-auto gap-20 max-w-6xl"> */}
-      <div className="mt-[100px] w-full px-2 lg:px-[160px] max-w-6xl mx-auto">
+      <div className="mt-[100px] lg:px-10 px-1 w-full max-w-6xl mx-auto overflow-x-auto">
+
+        {/* <div className="flex items-center gap-x-10 w-max flex-nowrap">
+          {
+            TestiMotionals.map(item => (
+              <Testimotional
+                key={item.id}
+                {...item}
+              />
+            ))
+          }
+        </div> */}
 
         <HorizontalScrollableSection
           title=""
+          slideW="300px"
           buttonsPlace="lr"
           showSeeMore={false}
           showPrevNextButtons={true}
-          slidesPerView={1}
-          slidesPerView_sm={2}
-          slidesPerView_md={3}
-          slidesPerView_lg={3}
-          slidesPerView_xl={3}
-          spaceBetween={60}
+          slidesPerView="auto"
+          slidesPerView_sm="auto"
+          slidesPerView_md="auto"
+          slidesPerView_lg="auto"
+          slidesPerView_xl="auto"
+          spaceBetween={30}
           renderSlideTemplate={item => <Testimotional {...item} />}
           items={TestiMotionals}
         />

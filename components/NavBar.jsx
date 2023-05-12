@@ -30,12 +30,12 @@ function RightSideMenu() {
             >
                 <div ref={menuRef} className={`${isOpen&&"!translate-x-0"} pt-[40px] pr-5 items-end translate-x-full transition-transform duration-300 fixed top-0 right-0 w-32 h-screen bg-zinc-800 z-[999] flex flex-col gap-y-7`}>
                     <NavBarLink href="/" text="Home" />
-                    <NavBarLink href="/movies" text="Movie" />
-                    <NavBarLink href="/series" text="Series" />
-                    <NavBarLink href="/series" text="Tv" />
-                    <NavBarLink href="/series" text="News" />
-                    <NavBarLink href="/series" text="About Us" />
-                    <NavBarLink href="/series" text="Contact" />
+                    <NavBarLink href="#movies" text="Movie" />
+                    <NavBarLink href="#series" text="Series" />
+                    <NavBarLink href="/" text="Tv" />
+                    <NavBarLink href="#new-movies" text="News" />
+                    <NavBarLink href="/" text="About Us" />
+                    <NavBarLink href="/" text="Contact" />
                 </div>
             </div>
 
@@ -59,12 +59,12 @@ export default function NavBar() {
                     {/* links */}
                     <div className="hidden lg:flex items-center gap-x-[25px]">
                         <NavBarLink href="/" text="Home" />
-                        <NavBarLink href="/movies" text="Movie" />
-                        <NavBarLink href="/series" text="Series" />
-                        <NavBarLink href="/series" text="Tv" />
-                        <NavBarLink href="/series" text="News" />
-                        <NavBarLink href="/series" text="About Us" />
-                        <NavBarLink href="/series" text="Contact" />
+                        <NavBarLink href="#movies" text="Movie" />
+                        <NavBarLink href="#series" text="Series" />
+                        <NavBarLink href="/" text="Tv" />
+                        <NavBarLink href="#new-movies" text="News" />
+                        <NavBarLink href="/" text="About Us" />
+                        <NavBarLink href="/" text="Contact" />
                     </div>
 
                 </div>

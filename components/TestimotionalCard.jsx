@@ -4,7 +4,7 @@ import { AiFillStar } from "react-icons/ai"
 
 export default function Testimotional({username, img, text, tl_text, score}) {
     return (
-        <div className="w-full rounded-lg bg-black/30 p-5 min-h-[240px] relative">
+        <div className="w-[300px] rounded-lg bg-black/30 p-5 min-h-[240px] relative">
             <p className="text-white/50 text-xs font-light font-[Lexend] tracking-wide absolute top-4 left-4">{tl_text}</p>
             <Image
                 width={60}

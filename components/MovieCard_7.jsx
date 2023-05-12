@@ -58,13 +58,16 @@ export default function MovieCard_7({
 
                 <div className="relative w-full h-full group">
 
-                    <Image
-                        width={img.width}
-                        height={img.height}
-                        alt=""
-                        src={img.src}
-                        className="object-center object-cover w-full h-full block"
-                    />
+                    <div className="w-full h-full relative">
+                        <Image
+                            width={img.width}
+                            height={img.height}
+                            alt=""
+                            src={img.src}
+                            className="object-center object-cover absolute top-0 left-0 w-full h-full"
+                        />
+                    </div>
+
 
                     <div
                         className={
@@ -72,10 +75,10 @@ export default function MovieCard_7({
                             ?
                                 `z-10 absolute top-0 left-0 w-full h-full bg-transparent pointer-events-none opacity-0
                                 group-hover:bg-black/60 group-hover:pointer-events-auto group-hover:opacity-100 transition-all
-                                duration-300 flex flex-col justify-between p-2 gap-y-1`
+                                duration-300 flex flex-col justify-between p-2 gap-y-1 border`
                             :
                                 `z-10 absolute top-0 left-0 w-full h-full bg-black/60 transition-all
-                                duration-300 flex flex-col justify-between p-2 gap-y-1`
+                                duration-300 flex flex-col justify-between p-2 gap-y-1 border`
                     }>
 
                         <div className="flex items-center gap-1.5 flex-wrap">
@@ -102,7 +105,7 @@ export default function MovieCard_7({
                     <div className="p-1 py-2 flex items-center justify-between">
 
                         <HeartIcon />
-                        <div className="p-0.5 hover:bg-red-500 rounded transition-colors duration-200 cursor-pointer group">
+                        <div className="p-0.5 hover:bg-red-500 rounded transition-all duration-200 cursor-pointer group active:scale-90">
                             <MdKeyboardArrowRight className="w-4 h-4 fill-red-500 group-hover:fill-[#1E1E1E] transition-colors duration-200" />
                         </div>
 
