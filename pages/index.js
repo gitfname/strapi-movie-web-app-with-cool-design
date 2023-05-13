@@ -1,13 +1,8 @@
 import dynamic from "next/dynamic"
 import ApplicationLayout from "@/components/ApplicationLayout"
 import CTA from "@/components/CTA"
-import FilterByeGenreTag from "@/components/FilterByeGenreTag"
-import FiltersWithDropDown from "@/components/FiltersWithDropDown"
-import GenreCard from "@/components/GenreCard"
 import StatusCard from "@/components/StatusCard"
 import Image from "next/image"
-import { useEffect, useId } from "react"
-import BScroll from "better-scroll"
 import MovieCard_1 from "@/components/MovieCard_1"
 import HeroBg from "@/components/HeroBg"
 import MovieCard_2 from "@/components/MovieCard_2"
@@ -20,35 +15,17 @@ import TvSeries from "@/lib/db/TvSeries"
 import MovieCard_4 from "@/components/MovieCard_4"
 import topTenMovies from "@/lib/db/topTenMovies"
 import MovieCard_5 from "@/components/MovieCard_5"
-import MovieCard_6 from "@/components/MovieCard_6"
-import SeriesCard_2 from "@/components/SeriesCard_2"
 import animations from "@/lib/db/animations"
 import MovieCard_7 from "@/components/MovieCard_7"
 import FeatureCard from "@/components/FeatureCard"
 import Testimotional from "@/components/TestimotionalCard"
 import TestiMotionals from "@/lib/db/TestiMotionals"
 import Banners from "@/components/Banners"
+const GenresSection = dynamic(() => import("@/components/GenresSection"), {ssr: false})
+const FiltersSection = dynamic(() => import("@/components/FiltersSection"), {ssr: false})
+const FiltersByGenresSection = dynamic(() => import("@/components/FiltersByGenreSection"), {ssr: false})
 
 export default function HomePage() {
-
-  const filtersByeTypeId = useId()
-
-  useEffect(
-    () => {
-      const element = document.getElementById(filtersByeTypeId)
-      const t = new BScroll(element, {
-        bounce: {
-          left: true,
-          right: true
-        },
-        scrollY: false,
-        scrollX: true,
-        bounceTime: 500
-      })
-    },
-    [filtersByeTypeId]
-  )
-
 
   return (
     <div className="w-full">
@@ -114,158 +91,16 @@ export default function HomePage() {
       </div>
 
       {/* Genres section */}
-      <div
-        className="
-          w-full z-10 px-[25px] md:px-[50px] md:-translate-y-20 lg:-translate-y-24 max-lg:mt-12
-          grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 md:gap-x-[70px] gap-y-10
-        "
-      >
-
-        <GenreCard
-          img="/alien.svg"
-          title="Science fiction"
-          subtitle="800+ Movies"
-        />
-
-        <GenreCard
-          img="/classic.svg"
-          title="Classic"
-          subtitle="750+ Movies"
-        />
-
-        <GenreCard
-          img="/horror.svg"
-          title="Horror"
-          subtitle="680+ Movies"
-        />
-
-        <GenreCard
-          img="/mistery.svg"
-          title="Mystery"
-          subtitle="730+ Movies"
-        />
-
-        <GenreCard
-          img="/musical.svg"
-          title="Musical"
-          subtitle="550+ Movies"
-        />
-
-        <GenreCard
-          img="/romance.svg"
-          title="Romance"
-          subtitle="920+ Movies"
-        />
-
-        <GenreCard
-          img="/war.svg"
-          title="War"
-          subtitle="880+ Movies"
-        />
-
-        <GenreCard
-          img="/western.svg"
-          title="Western"
-          subtitle="700+ Movies"
-        />
-
-      </div>
+      <GenresSection />
 
 
       {/* filters section */}
-      <div className="md:px-[50px] overflow-hidden max-md:mt-12">
-
-        <FiltersWithDropDown
-          items={
-            [
-              {
-                key: 0,
-                text: "Sort by Year",
-                img: "/calendar.svg",
-                items: [
-                  {
-                    text: "2023 - 2022",
-                  },
-                  {
-                    text: "2022 - 2021",
-                  },
-                  {
-                    text: "2021 - 2020",
-                  }
-                ]
-              },
-              {
-                key: 1,
-                text: "Sort by Genre",
-                img: "/more.svg",
-                items: [
-                  {
-                    text: "Action",
-                  },
-                  {
-                    text: "Adventure",
-                  },
-                  {
-                    text: "Comedy",
-                  }
-                ]
-              },
-              {
-                key: 2,
-                text: "Sort by Rating",
-                img: "/star1.svg",
-                items: [
-                  {
-                    text: "10 - 5",
-                  },
-                  {
-                    text: "5 - 0",
-                  }
-                ]
-              },
-              {
-                key: 3,
-                text: "Sort by Vote",
-                img: "/like1.svg",
-                items: [
-                  {
-                    text: "1000",
-                  },
-                  {
-                    text: "900",
-                  },
-                  {
-                    text: "800",
-                  },
-                  {
-                    text: "700",
-                  },
-                  {
-                    text: "600",
-                  }
-                ]
-              }
-            ]
-          }
-        />
-
-      </div>
+      <FiltersSection />
 
 
       {/* filters bye genre */}
-      <div id={filtersByeTypeId} className="p-0.5 max-lg:w-[calc(100%-48px)] md:px-[50px] mx-auto overflow-hidden mt-5">
-        <div className="w-max flex items-center flex-nowrap gap-x-3">
-          <FilterByeGenreTag text="All" active />
-          <FilterByeGenreTag text="Genre" />
-          <FilterByeGenreTag text="Popular" />
-          <FilterByeGenreTag text="Recommened" />
-          <FilterByeGenreTag text="New" />
-          <FilterByeGenreTag text="Series" />
-          <FilterByeGenreTag text="Top Ten" />
-          <FilterByeGenreTag text="Animation" />
-          <FilterByeGenreTag text="Archive" />
-        </div>
-      </div>
+      <FiltersByGenresSection />
+
 
 
       {/* hot movies */}
@@ -487,52 +322,7 @@ export default function HomePage() {
         />
       </div>
 
-      
       <Banners />
-      {/* <div className="mt-11 px-[25px] lg:px-[50px] grid grid-cols-1 gap-y-7  lg:grid-rows-1 md:grid-cols-[1fr_65%] lg:h-[240px] gap-x-9">
-        <Image
-          width={720}
-          height={720}
-          alt=""
-          src="/banner1_mobile.svg"
-          className="object-center object-cover"
-        />
-        <Image
-          width={720}
-          height={720}
-          alt=""
-          src="/banner2_mobile.svg"
-          className="object-center object-cover"
-        /> */}
-        {/* <MovieCard_6
-          text_tl="Apr 05, 2023"
-          text_tr="1 hr 32 min"
-          text_bl="The Super Mario Bros"
-          height="100%"
-          img={{
-            width: 720,
-            height: 480,
-            src: "/movie-images/img4.jpg"
-          }}
-        />
-
-        <SeriesCard_2
-          width="100%"
-          height="100%"
-          img={{
-            width: 720,
-            height: 480,
-            src: "/movie-images/img1.jpg"
-          }}
-          title="Oppenheimer"
-          episodesCount={10}
-          date={{
-            year:"2023"
-          }}
-          desc="The story of J. Robert Oppenheimer’s role in the development of the atomic bomb during World War II."
-        /> */}
-      {/* </div> */}
-
 
       {/* Animations */}
       <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
@@ -595,19 +385,7 @@ export default function HomePage() {
 
 
       {/* TestiMotionals */}
-      {/* <div className="mt-[100px] grid grid-cols-1 md:grid-cols-3 w-10/12 sm:w-8/12 md:w-11/12 mx-auto gap-20 max-w-6xl"> */}
       <div className="mt-[100px] lg:px-10 px-1 w-full max-w-6xl mx-auto overflow-x-auto">
-
-        {/* <div className="flex items-center gap-x-10 w-max flex-nowrap">
-          {
-            TestiMotionals.map(item => (
-              <Testimotional
-                key={item.id}
-                {...item}
-              />
-            ))
-          }
-        </div> */}
 
         <HorizontalScrollableSection
           title=""
