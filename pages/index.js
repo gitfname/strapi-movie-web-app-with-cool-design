@@ -5,11 +5,7 @@ import StatusCard from "@/components/StatusCard"
 import Image from "next/image"
 import MovieCard_1 from "@/components/MovieCard_1"
 import HeroBg from "@/components/HeroBg"
-import MovieCard_2 from "@/components/MovieCard_2"
 const HorizontalScrollableSection = dynamic(() => import("@/components/HorizontalScrollableSection"), {ssr: false})
-import recommendMovies from "@/lib/db/recommendMovies"
-import MovieCard_3 from "@/components/MovieCard_3"
-import SeriesCard_1 from "@/components/SeriesCard_1"
 import newMovies from "@/lib/db/newMovies"
 import TvSeries from "@/lib/db/TvSeries"
 import MovieCard_4 from "@/components/MovieCard_4"
@@ -24,6 +20,11 @@ import Banners from "@/components/Banners"
 const GenresSection = dynamic(() => import("@/components/GenresSection"), {ssr: false})
 const FiltersSection = dynamic(() => import("@/components/FiltersSection"), {ssr: false})
 const FiltersByGenresSection = dynamic(() => import("@/components/FiltersByGenreSection"), {ssr: false})
+const HotMoviesSection = dynamic(() => import("@/components/HotMoviesSection"), {ssr: false})
+const RecommendSection = dynamic(() => import("@/components/RecommendSection"), {ssr: false})
+const MovieCard_3 = dynamic(() => import("@/components/MovieCard_3"), {ssr: false})
+const SeriesCard_1 = dynamic(() => import("@/components/SeriesCard_1"), {ssr: false})
+
 
 export default function HomePage() {
 
@@ -104,136 +105,11 @@ export default function HomePage() {
 
 
       {/* hot movies */}
-      <div id="movies" className="mt-[34px] px-[25px] lg:px-[50px]">
-        <HorizontalScrollableSection
-          title="Hot Movies"
-          spaceBetween={20}
-          showSeeMore={true}
-          showPrevNextButtons={false}
-          slideH={195}
-          slidesPerView={1}
-          slidesPerView_sm={2}
-          slidesPerView_md={3}
-          slidesPerView_lg={3}
-          slidesPerView_xl={4}
-          renderSlideTemplate={item => <MovieCard_1 {...item}/>}
-          items={[
-            {
-              id: "0",
-              title: "movie-1",
-              desc: "movie-1 description and with other text is goes here",
-              img: {
-                width: 500,
-                height: 400,
-                src: "/movie-images/production/img1.avif"
-              },
-              width: "100%",
-              height: 195,
-              date: {
-                year: "2023",
-                month: "03",
-                dat: "11",
-                total: "2023/03/11"
-              },
-              pageLink: "http://example.com/movie-1details",
-            },
-            {
-              id: "1",
-              title: "movie-2",
-              desc: "movie-2 description and with other text is goes here",
-              img: {
-                width: 500,
-                height: 400,
-                src: "/movie-images/production/img24.avif"
-              },
-              width: "100%",
-              height: 195,
-              date: {
-                year: "2023",
-                month: "11",
-                dat: "03",
-                total: "2023/11/03"
-              },
-              pageLink: "http://example.com/movie-2-details"
-            },
-            {
-              id: "2",
-              title: "movie-3",
-              desc: "movie-3 description and with other text is goes here",
-              img: {
-                width: 500,
-                height: 400,
-                src: "/movie-images/production/img25.avif"
-              },
-              width: "100%",
-              height: 195,
-              date: {
-                year: "2022",
-                month: "05",
-                dat: "04",
-                total: "2022/05/04"
-              },
-              pageLink: "http://example.com/movie-3-details"
-            },
-            {
-              id: "3",
-              title: "movie-4",
-              desc: "movie-4 description and with other text is goes here",
-              img: {
-                width: 500,
-                height: 400,
-                src: "/movie-images/production/img26.avif"
-              },
-              width: "100%",
-              height: 195,
-              date: {
-                year: "2023",
-                month: "01",
-                dat: "19",
-                total: "2023/01/19"
-              },
-              pageLink: "http://example.com/movie-4-details"
-            },
-            {
-              id: "4",
-              title: "movie-5",
-              desc: "movie-5 description and with other text is goes here",
-              img: {
-                width: 500,
-                height: 400,
-                src: "/movie-images/production/img29.avif"
-              },
-              width: "100%",
-              height: 195,
-              date: {
-                year: "2023",
-                month: "05",
-                dat: "21",
-                total: "2023/05/21"
-              },
-              pageLink: "http://example.com/movie-5-details"
-            },
-          ]}
-        />
-      </div>
+      <HotMoviesSection />
 
 
       {/* Recommend section */}
-      <div className="mt-[34px] px-[25px] lg:px-[50px]">
-        <HorizontalScrollableSection
-          title="Recommend"
-          showSeeMore={false}
-          showPrevNextButtons={true}
-          slidesPerView={2}
-          slidesPerView_sm={3}
-          slidesPerView_md={4}
-          slidesPerView_lg={6}
-          slidesPerView_xl={6}
-          spaceBetween={25}
-          renderSlideTemplate={item => <MovieCard_2 {...item} />}
-          items={recommendMovies}
-        />
-      </div>
+      <RecommendSection />
 
 
       <div className="mt-2 px-[25px] lg:px-[50px] grid gap-y-6 grid-cols-1 grid-rows-[240px_240px] lg:grid-rows-1 lg:grid-cols-[65%_1fr] lg:h-[260px] gap-x-9">
