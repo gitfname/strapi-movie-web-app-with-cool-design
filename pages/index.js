@@ -3,20 +3,11 @@ import ApplicationLayout from "@/components/ApplicationLayout"
 import CTA from "@/components/CTA"
 import StatusCard from "@/components/StatusCard"
 import Image from "next/image"
-import MovieCard_1 from "@/components/MovieCard_1"
 import HeroBg from "@/components/HeroBg"
 const HorizontalScrollableSection = dynamic(() => import("@/components/HorizontalScrollableSection"), {ssr: false})
-import newMovies from "@/lib/db/newMovies"
-import TvSeries from "@/lib/db/TvSeries"
-import MovieCard_4 from "@/components/MovieCard_4"
-import topTenMovies from "@/lib/db/topTenMovies"
-import MovieCard_5 from "@/components/MovieCard_5"
-import animations from "@/lib/db/animations"
-import MovieCard_7 from "@/components/MovieCard_7"
 import FeatureCard from "@/components/FeatureCard"
 import Testimotional from "@/components/TestimotionalCard"
 import TestiMotionals from "@/lib/db/TestiMotionals"
-import Banners from "@/components/Banners"
 const GenresSection = dynamic(() => import("@/components/GenresSection"), {ssr: false})
 const FiltersSection = dynamic(() => import("@/components/FiltersSection"), {ssr: false})
 const FiltersByGenresSection = dynamic(() => import("@/components/FiltersByGenreSection"), {ssr: false})
@@ -24,6 +15,13 @@ const HotMoviesSection = dynamic(() => import("@/components/HotMoviesSection"), 
 const RecommendSection = dynamic(() => import("@/components/RecommendSection"), {ssr: false})
 const MovieCard_3 = dynamic(() => import("@/components/MovieCard_3"), {ssr: false})
 const SeriesCard_1 = dynamic(() => import("@/components/SeriesCard_1"), {ssr: false})
+const NewMoviesSection = dynamic(() => import("@/components/NewMoviesSection"), {ssr: false})
+const TvSeriesSection = dynamic(() => import("@/components/TvSeriesSection"), {ssr: false})
+const TopTenMoviesSection = dynamic(() => import("@/components/TopTenMoviesSection"), {ssr: false})
+const AnimationsSection = dynamic(() => import("@/components/AnimationsSection"), {ssr: false})
+const Banners = dynamic(() => import("@/components/Banners"), {ssr: false})
+
+
 
 
 export default function HomePage() {
@@ -141,83 +139,20 @@ export default function HomePage() {
 
       
       {/* new movies */}
-      <div id="new-movies" className="w-full px-[25px] lg:px-[50px] mt-[34px]">
-        <HorizontalScrollableSection
-          title="New Movies"
-          showSeeMore={false}
-          slideW={400}
-          showPrevNextButtons={false}
-          slidesPerView={1.2}
-          slidesPerView_sm={2}
-          slidesPerView_md={3}
-          slidesPerView_lg={4}
-          slidesPerView_xl={5}
-          spaceBetween={25}
-          renderSlideTemplate={item => <MovieCard_1 {...item} />}
-          items={newMovies}
-        />
-      </div>
+      <NewMoviesSection />
 
 
       {/* Tv Series */}
-      <div id="series" className="w-full px-[25px] lg:px-[50px] mt-[34px]">
-        <HorizontalScrollableSection
-          title="Tv Series"
-          showSeeMore={false}
-          showPrevNextButtons={true}
-          slidesPerView={1.4}
-          slidesPerView_sm={3}
-          slidesPerView_md={4}
-          slidesPerView_lg={5}
-          slidesPerView_xl={6}
-          spaceBetween={25}
-          renderSlideTemplate={item => <MovieCard_4 {...item} />}
-          items={TvSeries}
-        />
-      </div>
+      <TvSeriesSection />
 
 
       {/* Top Ten Movies */}
-      <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
-        <HorizontalScrollableSection
-          title="Top Ten Movies"
-          slideW={300}
-          slideH={200}
-          showSeeMoreW={150}
-          showSeeMoreH={210}
-          showSeeMore={true}
-          showPrevNextButtons={false}
-          slidesPerView="auto"
-          slidesPerView_sm="auto"
-          slidesPerView_md="auto"
-          slidesPerView_lg="auto"
-          slidesPerView_xl="auto"
-          spaceBetween={25}
-          renderSlideTemplate={item => <MovieCard_5 {...item} />}
-          items={topTenMovies}
-        />
-      </div>
+      <TopTenMoviesSection />
 
       <Banners />
 
       {/* Animations */}
-      <div className="w-full px-[25px] lg:px-[50px] mt-[34px]">
-        <HorizontalScrollableSection
-          title="Animations"
-          slideH="100%"
-          slideW={230}
-          showSeeMore={false}
-          showPrevNextButtons={true}
-          slidesPerView={1.3}
-          slidesPerView_sm={2}
-          slidesPerView_md={3}
-          slidesPerView_lg={5}
-          slidesPerView_xl={5}
-          spaceBetween={25}
-          renderSlideTemplate={item => <MovieCard_7 {...item} />}
-          items={animations}
-        />
-      </div>
+      <AnimationsSection />
 
 
       <div className="w-full mt-[100px] flex items-center gap-x-1.5 justify-center">
